@@ -572,7 +572,7 @@ pub fn specs() -> Vec<CommandSpec> {
         ),
         spec!(
             "file.export.pathsToIllustrator",
-            "Paths to Illustrator…",
+            "Paths to Vector File…",
             &["File", "Export"],
             None,
             r##"{"path":str? (.ai; omit to return the text),"paths":"all|work|<path name>"="all"} → {path, paths}"##,

@@ -13,7 +13,7 @@
 # Clean-room: every entry was written from the plain meaning of the English label using ordinary
 # Polish image-editing vocabulary (warstwa, maska, zaznaczenie, pędzel, rozmycie, krycie ...). No
 # proprietary localisation resource, string table or product UI was consulted or copied; add
-# entries the same way. Product and technology names (PhotoCraft, ArtCraft, OpenType, CMYK, Lab ...)
+# entries the same way. Product and technology names (Ardoise Photo, Ardoise, OpenType, CMYK, Lab ...)
 # stay in Latin letters; the trailing "…" of dialog commands is kept.
 # Conventions: menus are nouns (Plik, Edycja, Obraz ...), commands are infinitives (Otwórz…,
 # Zapisz jako…), sentence case as in the English source. Quotes: „…”.
@@ -65,7 +65,7 @@
 	Layer Comps to Files…	Kompozycje warstw do plików…
 	Color Lookup Tables…	Tablice wyszukiwania kolorów…
 	Data Sets as Files…	Zestawy danych jako pliki…
-	Paths to Illustrator…	Ścieżki do Illustratora…
+	Paths to Vector File…	Ścieżki do Illustratora…
 	Render Video…	Renderuj wideo…
 	Generate	Generuj
 	Image Assets	Zasoby obrazów
@@ -177,7 +177,7 @@
 	Plug-ins…	Wtyczki…
 	Type…	Tekst…
 	Enhanced Controls…	Ulepszone elementy sterujące…
-	Camera Raw…	Camera Raw…
+	Raw Developer…	Raw Developer…
 	Raw Defaults…	Domyślne ustawienia Raw…
 	Integrations…	Integracje…
 	AI Integrations…	Integracje AI…
@@ -496,7 +496,7 @@
 	Last Filter	Ostatni filtr
 	Filter Gallery…	Galeria filtrów…
 	Adaptive Wide Angle…	Adaptacyjny szeroki kąt…
-	Camera Raw Filter…	Filtr Camera Raw…
+	Raw Developer Filter…	Filtr Raw Developer…
 	Liquify…	Skraplanie…
 	Vanishing Point…	Punkt zbieżności…
 	Blur	Rozmycie
@@ -724,11 +724,11 @@
 	Timeline	Oś czasu
 	Tool Presets	Ustawienia wstępne narzędzi
 	Tools	Narzędzia
-	About PhotoCraft	O programie PhotoCraft
-	PhotoCraft Website	Strona internetowa PhotoCraft
-	PhotoCraft on GitHub	PhotoCraft na GitHubie
-	ArtCraft Website	Strona internetowa ArtCraft
-	Join the ArtCraft Discord…	Dołącz do Discorda ArtCraft…
+	About Ardoise Photo	O programie Ardoise Photo
+	Ardoise Photo Website	Strona internetowa Ardoise Photo
+	Ardoise Photo on GitHub	Ardoise Photo na GitHubie
+	Ardoise Website	Strona internetowa Ardoise
+	Join the Ardoise Discord…	Dołącz do Discorda Ardoise…
 	Report an Issue…	Zgłoś problem…
 	WIA Support…	Obsługa WIA…
 	Apply	Zastosuj
@@ -780,7 +780,7 @@
 	All Caps	Wszystkie wersaliki
 	All Slices	Wszystkie plasterki
 	All User Slices	Wszystkie plasterki użytkownika
-	All shortcuts reset to PhotoCraft defaults.	Wszystkie skróty przywrócono do ustawień domyślnych PhotoCraft.
+	All shortcuts reset to Ardoise Photo defaults.	Wszystkie skróty przywrócono do ustawień domyślnych Ardoise Photo.
 	Alt	Alt
 	Always use pressure for opacity	Zawsze używaj nacisku do krycia
 	Always use pressure for size	Zawsze używaj nacisku do rozmiaru
@@ -838,7 +838,7 @@
 	Brush Reconstruct Options	Opcje pędzla rekonstrukcji
 	Brush Tool Options	Opcje narzędzia Pędzel
 	Cache Level:	Poziom pamięci podręcznej:
-	Camera Raw isn't open	Camera Raw nie jest otwarty
+	Raw Developer isn't open	Raw Developer nie jest otwarty
 	Cancel	Anuluj
 	Cancel (Esc)	Anuluj (Esc)
 	Cancel any current edits (Esc)	Anuluj wszystkie bieżące zmiany (Esc)
@@ -1017,7 +1017,7 @@
 	Draw with the Pen tool (P) or make a work path from a selection.	Rysuj narzędziem Pióro (P) lub utwórz ścieżkę roboczą z zaznaczenia.
 	Drop an image or PSD anywhere to open it.	Upuść obraz lub plik PSD w dowolnym miejscu, aby go otworzyć.
 	Native file drag-and-drop is unavailable	Natywne przeciąganie plików jest niedostępne
-	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or run PhotoCraft under XWayland with `WAYLAND_DISPLAY= photocraft`.	Natywne przeciąganie plików nie jest jeszcze obsługiwane w Waylandzie. Użyj Plik › Otwórz lub uruchom PhotoCraft w XWayland poleceniem `WAYLAND_DISPLAY= photocraft`.
+	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or run Ardoise Photo under XWayland with `WAYLAND_DISPLAY= photocraft`.	Natywne przeciąganie plików nie jest jeszcze obsługiwane w Waylandzie. Użyj Plik › Otwórz lub uruchom Ardoise Photo w XWayland poleceniem `WAYLAND_DISPLAY= photocraft`.
 	Duplicate Layers…	Duplikuj warstwy…
 	Duplicate style	Duplikuj styl
 	Edit Toolbar…	Edytuj pasek narzędzi…
@@ -1260,9 +1260,9 @@
 	Perspective Warp is not active	Wypaczenie perspektywy nie jest aktywne
 	Perspective Warp: draw planes along the image's perspective, then switch to Warp	Wypaczenie perspektywy: narysuj płaszczyzny zgodnie z perspektywą obrazu, a następnie przełącz na wypaczenie
 	Photo Filter	Filtr fotograficzny
-	PhotoCraft	PhotoCraft
-	PhotoCraft Manages Colors	Kolorami zarządza PhotoCraft
-	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — natywny edytor obrazów o otwartym kodzie źródłowym, napisany w Rust.
+	Ardoise Photo	Ardoise Photo
+	Ardoise Photo Manages Colors	Kolorami zarządza Ardoise Photo
+	Ardoise Photo — an open-source, native image editor written in Rust.	Ardoise Photo — natywny edytor obrazów o otwartym kodzie źródłowym, napisany w Rust.
 	Pin Depth:	Głębokość szpilki:
 	Pixel Length:	Długość w pikselach:
 	Pixels/Centimeter	Pikseli/centymetr
@@ -1337,11 +1337,11 @@
 	Import Shortcuts…	Importuj skróty…
 	Load a keyboard shortcut set saved as .kys	Wczytaj zestaw skrótów klawiaturowych zapisany jako .kys
 	Imported {n} shortcuts from {file}. Click OK to keep them.	Zaimportowano skrótów: {n} z pliku {file}. Kliknij OK, aby je zachować.
-	{n} commands are not in PhotoCraft.	Poleceń, których nie ma w PhotoCraft: {n}.
+	{n} commands are not in Ardoise Photo.	Poleceń, których nie ma w Ardoise Photo: {n}.
 	Keyboard shortcuts imported	Zaimportowano skróty klawiaturowe
 	Your keyboard shortcut set {set} is in use here: {n} shortcuts differ from the defaults. Edit › Keyboard Shortcuts shows them; Reset All to Defaults undoes this.	Twój zestaw skrótów klawiaturowych {set} jest tu używany: skrótów innych niż domyślne: {n}. Edycja › Skróty klawiaturowe je pokazuje; Przywróć wszystkie domyślne cofa import.
 	Import keyboard shortcuts?	Zaimportować skróty klawiaturowe?
-	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	PhotoCraft znalazł na tym komputerze Twój zestaw skrótów klawiaturowych {set} z innego edytora obrazów: skrótów innych niż w PhotoCraft: {n}. Zaimportować go?
+	Ardoise Photo found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from Ardoise Photo's. Import it?	Ardoise Photo znalazł na tym komputerze Twój zestaw skrótów klawiaturowych {set} z innego edytora obrazów: skrótów innych niż w Ardoise Photo: {n}. Zaimportować go?
 	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	Edycja › Skróty klawiaturowe › Przywróć wszystkie domyślne cofa import.
 	Don't Import	Nie importuj
 	The keyboard shortcut set was not imported: {error}	Nie zaimportowano zestawu skrótów klawiaturowych: {error}
@@ -1526,7 +1526,7 @@
 	Apple Watch 45mm	Apple Watch 45 mm
 	Aqua	Błękit morski
 	Art & Illustration	Sztuka i ilustracja
-	ArtCraft	ArtCraft
+	Ardoise	Ardoise
 	Background Eraser Tool	Narzędzie Gumka tła
 	Bevel & Emboss	Ukos i płaskorzeźba
 	Blend Mode	Tryb mieszania
@@ -1563,7 +1563,7 @@
 	Current Tool	Bieżące narzędzie
 	Custom Shape Tool	Narzędzie Kształt niestandardowy
 	Cyans	Cyjany
-	Default PhotoCraft Size	Domyślny rozmiar PhotoCraft
+	Default Ardoise Photo Size	Domyślny rozmiar Ardoise Photo
 	Delete Workspace	Usuń obszar roboczy
 	Diamond	Romb
 	Dimensions:	Wymiary:
@@ -1667,7 +1667,7 @@
 	Pen Tilt	Nachylenie pióra
 	Pen Tool	Narzędzie Pióro
 	Photo	Zdjęcie
-	PhotoCraft website	Strona internetowa PhotoCraft
+	Ardoise Photo website	Strona internetowa Ardoise Photo
 	Picas	Pikasy
 	Pillow Emboss	Płaskorzeźba poduszkowa
 	Pixel Replacement	Zamiana pikseli
@@ -1791,7 +1791,7 @@
 	Brush preview color	Kolor podglądu pędzla
 	Cache levels	Poziomy pamięci podręcznej
 	Cache tile size	Rozmiar kafla pamięci podręcznej
-	Camera Raw Defaults	Domyślne ustawienia Camera Raw
+	Raw Developer Defaults	Domyślne ustawienia Raw Developer
 	Canvas border	Obramowanie płótna
 	Canvas color	Kolor płótna
 	Canvas custom color	Własny kolor płótna
@@ -1994,7 +1994,7 @@
 	System Info…	Informacje o systemie…
 	System Info	Informacje o systemie
 	More panels	Więcej paneli
-	These settings aren't available in PhotoCraft yet.	Te ustawienia nie są jeszcze dostępne w PhotoCraft.
+	These settings aren't available in Ardoise Photo yet.	Te ustawienia nie są jeszcze dostępne w Ardoise Photo.
 	Graphics	Grafika
 	Reset GPU Backend	Resetuj backend GPU
 	Applies at next launch.	Zadziała po następnym uruchomieniu.
@@ -2256,8 +2256,8 @@
 	Roman Hanging Punctuation	Wiszące znaki interpunkcyjne (łacińskie)
 	Avoid Widows/Orphans	Unikaj wdów i sierot
 	Compose	Skład
-	Adobe Single-line Composer	Skład jednowierszowy Adobe
-	Adobe Every-line Composer	Skład wielowierszowy Adobe
+	Single-line Composer	Skład jednowierszowy Adobe
+	Every-line Composer	Skład wielowierszowy Adobe
 	Justification	Justowanie
 	Word Spacing	Odstępy między wyrazami
 	Letter Spacing	Odstępy między literami
@@ -2272,7 +2272,7 @@
 	Symbols	Symbole
 	Punctuation	Interpunkcja
 	Path:	Ścieżka:
-	Path to Illustrator…	Ścieżka do Illustratora…
+	Path to Vector File…	Ścieżka do Illustratora…
 	Make Work Path	Utwórz ścieżkę roboczą
 	Make Selection	Utwórz zaznaczenie
 	Fill Path	Wypełnij ścieżkę
@@ -2563,7 +2563,7 @@
 	Automatic uses GPU acceleration when available and falls back to CPU rendering on errors.	Tryb automatyczny używa akceleracji GPU, gdy jest dostępna, a w razie błędów przełącza się na renderowanie CPU.
 	Switched to CPU rendering	Przełączono na renderowanie CPU
 	GPU acceleration could not continue. Your documents are unchanged.	Akceleracja GPU nie mogła być kontynuowana. Twoje dokumenty nie zostały zmienione.
-	PhotoCraft is using the CPU image compositor. The window may still use your graphics adapter.	PhotoCraft używa kompozytora obrazu CPU. Okno może nadal korzystać z karty graficznej.
+	Ardoise Photo is using the CPU image compositor. The window may still use your graphics adapter.	Ardoise Photo używa kompozytora obrazu CPU. Okno może nadal korzystać z karty graficznej.
 	Retry GPU requires a restart. Save your work first.	Ponowna próba z GPU wymaga restartu. Najpierw zapisz swoją pracę.
 	Keep Using CPU	Nadal używaj CPU
 	Retry GPU	Spróbuj ponownie z GPU
@@ -2590,7 +2590,7 @@ fontWeight	Bold	Pogrubiony
 fontWeight	ExtraBold	Ekstra gruby
 fontWeight	Black	Czarny
 fontWeight	Italic	Kursywa
-	Camera Raw Filter ({layer})	Filtr Camera Raw ({layer})
+	Raw Developer Filter ({layer})	Filtr Raw Developer ({layer})
 cameraRaw	Lights	Jasne tony
 cameraRaw	Darks	Ciemne tony
 cameraRaw	Blacks	Czernie
@@ -2911,7 +2911,7 @@ cameraRaw	Roughness	Chropowatość
 	Layer Comps to Files	Kompozycje warstw do plików
 	Color Lookup Tables	Tablice wyszukiwania kolorów
 	Data Sets as Files	Zestawy danych jako pliki
-	Paths to Illustrator	Ścieżki do Illustratora
+	Paths to Vector File	Ścieżki do Illustratora
 	Render Video	Renderuj wideo
 	Place Embedded	Umieść osadzony
 	Place Linked	Umieść połączony
@@ -2939,7 +2939,7 @@ cameraRaw	Roughness	Chropowatość
 	Color Settings	Ustawienia kolorów
 	Assign Profile	Przypisz profil
 	Convert to Profile	Konwertuj na profil
-	Camera Raw	Camera Raw
+	Raw Developer	Raw Developer
 	Raw Defaults	Domyślne ustawienia Raw
 	AI Integrations	Integracje AI
 	Install Plug-in	Zainstaluj wtyczkę
@@ -2986,7 +2986,7 @@ cameraRaw	Roughness	Chropowatość
 	Border	Obramowanie
 	Contract	Zwęź
 	Filter Gallery	Galeria filtrów
-	Camera Raw Filter	Filtr Camera Raw
+	Raw Developer Filter	Filtr Raw Developer
 	Liquify	Skraplanie
 	Vanishing Point	Punkt zbieżności
 	Field Blur	Rozmycie pola
@@ -3036,7 +3036,7 @@ cameraRaw	Roughness	Chropowatość
 	Custom Pixel Aspect Ratio	Niestandardowe proporcje pikseli
 	32-bit Preview Options	Opcje podglądu 32-bitowego
 	New Guide	Nowa prowadnica
-	Join the ArtCraft Discord	Dołącz do Discorda ArtCraft
+	Join the Ardoise Discord	Dołącz do Discorda Ardoise
 	Report an Issue	Zgłoś problem
 	WIA Support	Obsługa WIA
 	Load Files into Stack	Wczytaj pliki do stosu
@@ -3274,18 +3274,18 @@ cameraRaw	Roughness	Chropowatość
 	Click to pick · Esc to cancel	Kliknij, aby wybrać · Esc, aby anulować
 	Pick a screen pixel or press Esc to cancel	Wybierz piksel ekranu lub naciśnij Esc, aby anulować
 	Scroll to zoom	Przewijaj, aby zmieniać powiększenie
-	Open in camera raw	Otwórz w Camera Raw
+	Open in camera raw	Otwórz w Raw Developer
 	System title bar	Systemowy pasek tytułu
 	More documents	Więcej dokumentów
 	Developing {name}	Wywoływanie {name}
-	Camera Raw ({name})	Camera Raw ({name})
+	Raw Developer ({name})	Raw Developer ({name})
 	Show/Hide All Panels	Pokaż/ukryj wszystkie panele
 	Show/Hide Panels	Pokaż/ukryj panele
 	Could not open	Nie można otworzyć
 	{path}: the path is not valid Unicode; rename the file and open it again.	{path}: ścieżka nie jest prawidłowym Unicode; zmień nazwę pliku i otwórz go ponownie.
 	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or copy the image in your file manager and paste it with {paste}.	Natywne przeciąganie i upuszczanie plików nie jest jeszcze obsługiwane w Wayland. Użyj Plik › Otwórz albo skopiuj obraz w menedżerze plików i wklej go za pomocą {paste}.
-	To drop files, start PhotoCraft under XWayland: `{command}`	Aby upuszczać pliki, uruchom PhotoCraft pod XWayland: `{command}`
-	Or set Preferences › Performance › Linux display server to X11: PhotoCraft then always starts under XWayland.	Albo ustaw Preferencje › Wydajność › Serwer wyświetlania Linuksa na X11: PhotoCraft będzie wtedy zawsze uruchamiany pod XWayland.
+	To drop files, start Ardoise Photo under XWayland: `{command}`	Aby upuszczać pliki, uruchom Ardoise Photo pod XWayland: `{command}`
+	Or set Preferences › Performance › Linux display server to X11: Ardoise Photo then always starts under XWayland.	Albo ustaw Preferencje › Wydajność › Serwer wyświetlania Linuksa na X11: Ardoise Photo będzie wtedy zawsze uruchamiany pod XWayland.
 	Edit › Paste	Edycja › Wklej
 	Use File › Open, or paste a copied image with {paste}.	Użyj Plik › Otwórz albo wklej skopiowany obraz za pomocą {paste}.
 
@@ -3371,7 +3371,7 @@ cameraRaw	Roughness	Chropowatość
 	Color to Alpha…	Kolor na alfę…
 	Transparency Threshold	Próg przezroczystości
 	Opacity Threshold	Próg krycia
-	PhotoCraft — Screen Color Picker	PhotoCraft — Próbnik kolorów ekranu
+	Ardoise Photo — Screen Color Picker	Ardoise Photo — Próbnik kolorów ekranu
 
 	Rasterize svg groups deeper than	Rasteryzuj grupy SVG głębsze niż ten poziom
 	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	0 wyłącza ten próg; grupy SVG zagnieżdżone głębiej niż 100 poziomów są zawsze rasteryzowane.

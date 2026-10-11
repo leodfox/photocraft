@@ -1,4 +1,4 @@
-//! Filter › Camera Raw Filter…: a large dialog like Adobe Camera Raw's (preview on the left,
+//! Filter › Raw Developer Filter…: a large dialog like Adobe Raw Developer's (preview on the left,
 //! edit panels on the right: Light, Color, Effects, Curve, Color Mixer, Color Grading, Detail).
 //!
 //! The preview runs [`photocraft_algo::camera_raw::develop`] on a CPU proxy of the layer
@@ -164,10 +164,10 @@ enum Target {
     OpenRaw,
 }
 
-/// A raw file opened interactively, shown in Camera Raw before it is kept (as Photoshop opens
-/// raws in Adobe Camera Raw first). The document is already developed with the defaults; Open
+/// A raw file opened interactively, shown in Raw Developer before it is kept (as Photoshop opens
+/// raws in Adobe Raw Developer first). The document is already developed with the defaults; Open
 /// re-develops it when Temperature, Tint or Exposure changed (those act on the sensor data, see
-/// [`photocraft_io::raw::import_raw_tuned`]) and applies the other settings as one Camera Raw
+/// [`photocraft_io::raw::import_raw_tuned`]) and applies the other settings as one Raw Developer
 /// step, then marks the document unmodified. Cancel closes it.
 #[derive(Clone, Debug)]
 pub struct RawOpen {
@@ -178,7 +178,7 @@ pub struct RawOpen {
     pub bytes: Option<std::sync::Arc<Vec<u8>>>,
 }
 
-/// Should an interactive open of `name` show the open-time Camera Raw dialog? `warnings` are
+/// Should an interactive open of `name` show the open-time Raw Developer dialog? `warnings` are
 /// the import's: only a raw developed from its sensor data qualifies (not a preview fallback).
 pub fn wants_open_dialog(app: &PhotocraftApp, warnings: &[String]) -> bool {
     app.session.prefs().raw_defaults.open_in_camera_raw && warnings.iter().any(|w| w.contains(photocraft_io::raw::DEVELOPED_NOTE))
@@ -243,7 +243,7 @@ pub struct Redevelop {
     pub job: photocraft_engine::jobs::JobId,
     params: CameraRaw,
     raw: RawOpen,
-    /// The job is the final Camera Raw step (`filter.cameraRaw`), not the re-develop: when it
+    /// The job is the final Raw Developer step (`filter.cameraRaw`), not the re-develop: when it
     /// lands the document is marked unmodified.
     filter_step: bool,
 }
@@ -345,7 +345,7 @@ fn finish_redevelop(app: &mut PhotocraftApp, params: &CameraRaw, raw: &RawOpen, 
     finish_open_raw(app, index, rest, Some(true), Some(raw))
 }
 
-/// The other settings as one Camera Raw step on document `index`, then the document is marked
+/// The other settings as one Raw Developer step on document `index`, then the document is marked
 /// unmodified (developing is part of opening). The step runs like any filter (in the
 /// background in the desktop app); the document is marked unmodified when it lands.
 fn finish_open_raw(app: &mut PhotocraftApp, index: usize, rest: CameraRaw, redeveloped: Option<bool>, raw: Option<&RawOpen>) -> Result<Value, String> {
@@ -380,7 +380,7 @@ fn mark_unmodified(app: &mut PhotocraftApp, index: usize) {
     app.sync_views();
 }
 
-/// A finished background re-develop ([`REDEVELOP_JOB`]) or open-time Camera Raw step. `true`
+/// A finished background re-develop ([`REDEVELOP_JOB`]) or open-time Raw Developer step. `true`
 /// when the event was one of those (handled here).
 pub fn on_redevelop_event(app: &mut PhotocraftApp, e: &photocraft_engine::jobs::JobEvent) -> bool {
     let Some(pending) = app.raw_redevelop.take_if(|r| r.job == e.id) else { return false };
@@ -441,9 +441,9 @@ pub fn open(app: &mut PhotocraftApp, ctx: &egui::Context) -> Result<(), String> 
     open_pixels(app, ctx, layer, surf, CameraRaw::default(), Coverage::Selection, Target::NewFilter)
 }
 
-/// Opens Camera Raw on smart filter `index` of smart layer `layer`, with its stored settings and
+/// Opens Raw Developer on smart filter `index` of smart layer `layer`, with its stored settings and
 /// the pixels below it; OK updates that filter (`layer.smartFilter.setParams`), as double-clicking
-/// a Camera Raw smart filter does in Photoshop.
+/// a Raw Developer smart filter does in Photoshop.
 pub fn open_smart_filter(app: &mut PhotocraftApp, ctx: &egui::Context, layer: LayerId, index: usize) -> Result<(), String> {
     use photocraft_engine::lens_cmds::{RAW, raw_params};
     let st = app.session.active().ok_or("no document")?;
@@ -452,7 +452,7 @@ pub fn open_smart_filter(app: &mut PhotocraftApp, ctx: &egui::Context, layer: La
     };
     let filter = sm.smart_filters.get(index).ok_or("no such smart filter")?;
     if filter.command != RAW {
-        return Err("the smart filter is not a Camera Raw filter".into());
+        return Err("the smart filter is not a Raw Developer filter".into());
     }
     let params = raw_params(RAW, &filter.params).map_err(|e| e.to_string())?;
     let surf = photocraft_engine::smart_cmds::render_below_filter(&st.doc, sm, index)
@@ -474,17 +474,17 @@ fn open_pixels(
     let st = app.session.active().ok_or("no document")?;
     let canvas = st.doc.bounds();
     let name = st.doc.layer(layer).map(|l| l.name.clone()).unwrap_or_default();
-    // Use the engine filter domain, including pixels outside the canvas: spatial Camera Raw
+    // Use the engine filter domain, including pixels outside the canvas: spatial Raw Developer
     // stages (vignette, grain, local contrast) must agree with the committed result.
     let area = canvas.union(&surf.content_bounds());
     let width = area.x1.checked_sub(area.x0).filter(|n| (1..=1_048_576).contains(n));
     let height = area.y1.checked_sub(area.y0).filter(|n| (1..=1_048_576).contains(n));
     let (Some(w), Some(h)) = (width, height) else {
-        return Err("Camera Raw preview bounds are too large".into());
+        return Err("Raw Developer preview bounds are too large".into());
     };
     let (w, h) = (w as usize, h as usize);
     if w.checked_mul(h).is_none_or(|pixels| pixels > 512_000_000) {
-        return Err("Camera Raw preview bounds are too large".into());
+        return Err("Raw Developer preview bounds are too large".into());
     }
     let k = w.max(h).div_ceil(PROXY_SIDE).max(1);
     let (pw, ph) = (w.div_ceil(k), h.div_ceil(k));
@@ -531,7 +531,7 @@ fn open_pixels(
     }
     app.ui.camera_raw_preview = Default::default();
     app.ui.camera_raw_scope.samplers.clear();
-    // Keep Camera Raw compact on open; vectorscope is an opt-in context-menu view.
+    // Keep Raw Developer compact on open; vectorscope is an opt-in context-menu view.
     app.ui.camera_raw_scope.vectorscope = false;
     if selection.is_none() {
         app.ui.camera_raw_scope.selected_region = false;
@@ -592,7 +592,7 @@ pub fn menu(app: &mut PhotocraftApp, ctx: &egui::Context, id: &str, params: &Val
         return None;
     }
     let Some(fields) = params.as_object() else {
-        return Some(Err("Camera Raw params must be an object".into()));
+        return Some(Err("Raw Developer params must be an object".into()));
     };
     if fields.is_empty() {
         return Some(
@@ -613,18 +613,18 @@ pub fn menu(app: &mut PhotocraftApp, ctx: &egui::Context, id: &str, params: &Val
     }
     let ui = params.get("ui")?;
     let Some(fields) = ui.as_object() else {
-        return Some(Err("Camera Raw ui must be an object".into()));
+        return Some(Err("Raw Developer ui must be an object".into()));
     };
     for (key, value) in fields {
         match key.as_str() {
             "set" | "scope" | "view" => {}
             "before" | "commit" | "cancel" if value.is_boolean() => {}
-            "before" | "commit" | "cancel" => return Some(Err(format!("Camera Raw {key} must be a boolean"))),
-            _ => return Some(Err(format!("unknown Camera Raw ui property {key}"))),
+            "before" | "commit" | "cancel" => return Some(Err(format!("Raw Developer {key} must be a boolean"))),
+            _ => return Some(Err(format!("unknown Raw Developer ui property {key}"))),
         }
     }
     if ui.get("commit").and_then(Value::as_bool) == Some(true) && ui.get("cancel").and_then(Value::as_bool) == Some(true) {
-        return Some(Err("Camera Raw cannot commit and cancel together".into()));
+        return Some(Err("Raw Developer cannot commit and cancel together".into()));
     }
     let was_closed = app.camera_raw.is_none();
     let previous_view = app.ui.camera_raw_scope.clone();
@@ -648,23 +648,23 @@ fn menu_update(app: &mut PhotocraftApp, ctx: &egui::Context, ui: &Value) -> Opti
     let mut next_params = d.params.clone();
     if let Some(set) = ui.get("set") {
         if !set.is_object() {
-            return Some(Err("bad Camera Raw settings: expected an object".into()));
+            return Some(Err("bad Raw Developer settings: expected an object".into()));
         }
         let mut cur = serde_json::to_value(&d.params).unwrap_or(json!({}));
         if let (Value::Object(c), Value::Object(s)) = (&mut cur, set) {
             for (k, v) in s {
                 if !c.contains_key(k) {
-                    return Some(Err(format!("unknown Camera Raw setting {k}")));
+                    return Some(Err(format!("unknown Raw Developer setting {k}")));
                 }
                 c.insert(k.clone(), v.clone());
             }
         }
         next_params = match serde_json::from_value::<CameraRaw>(cur) {
             Ok(p) => p,
-            Err(e) => return Some(Err(format!("bad Camera Raw settings: {e}"))),
+            Err(e) => return Some(Err(format!("bad Raw Developer settings: {e}"))),
         };
         if let Err(e) = next_params.validate_changes(&d.original) {
-            return Some(Err(format!("bad Camera Raw settings: {e}")));
+            return Some(Err(format!("bad Raw Developer settings: {e}")));
         }
     }
     let scope_update = match ui.get("scope") {
@@ -716,7 +716,7 @@ fn menu_update(app: &mut PhotocraftApp, ctx: &egui::Context, ui: &Value) -> Opti
 }
 
 fn commit(app: &mut PhotocraftApp) -> Result<Value, String> {
-    let d = app.camera_raw.as_ref().ok_or(tl!("Camera Raw isn't open"))?;
+    let d = app.camera_raw.as_ref().ok_or(tl!("Raw Developer isn't open"))?;
     let result = match d.target {
         Target::NewFilter => {
             let mut p = d.command_params();
@@ -842,14 +842,14 @@ pub fn show(app: &mut PhotocraftApp, ctx: &egui::Context) {
         return;
     }
     let window_title = d.window_title();
-    // Camera Raw is modal, as in Photoshop: the main window is dimmed and takes no input while it
+    // Raw Developer is modal, as in Photoshop: the main window is dimmed and takes no input while it
     // is open (in a separate window, or drawn over it where there are no extra windows).
     let main = ctx.content_rect();
     egui::Area::new(egui::Id::new("camera-raw-modal")).order(egui::Order::Foreground).fixed_pos(main.min).show(ctx, |ui| {
         let (r, _) = ui.allocate_exact_size(main.size(), Sense::click_and_drag());
         ui.painter().rect_filled(r, 0.0, Tokens::get(ui.ctx()).scrim);
     });
-    // A window of its own (title bar, moved and resized like any window), like Adobe Camera Raw.
+    // A window of its own (title bar, moved and resized like any window), like Adobe Raw Developer.
     let builder = egui::ViewportBuilder::default().with_title(window_title).with_inner_size([1360.0, 900.0]).with_min_inner_size([900.0, 600.0]);
     let mut close = false;
     ctx.show_viewport_immediate(egui::ViewportId::from_hash_of("camera-raw-window"), builder, |ui, class| {
@@ -864,12 +864,12 @@ pub fn show(app: &mut PhotocraftApp, ctx: &egui::Context) {
 }
 
 impl CameraRawDialog {
-    /// "Camera Raw (name)" for the open-time dialog, "Camera Raw Filter (layer)" otherwise.
+    /// "Raw Developer (name)" for the open-time dialog, "Raw Developer Filter (layer)" otherwise.
     fn window_title(&self) -> String {
         if self.target == Target::OpenRaw {
-            crate::i18n::fmt(tl!("Camera Raw ({name})"), &[("name", &self.layer_name)])
+            crate::i18n::fmt(tl!("Raw Developer ({name})"), &[("name", &self.layer_name)])
         } else {
-            crate::i18n::fmt(tl!("Camera Raw Filter ({layer})"), &[("layer", &self.layer_name)])
+            crate::i18n::fmt(tl!("Raw Developer Filter ({layer})"), &[("layer", &self.layer_name)])
         }
     }
 }
@@ -1140,7 +1140,7 @@ mod tests {
         assert!((pixel[0] - 128.0 / 255.0).abs() < 0.0001);
     }
 
-    /// Closing Camera Raw's window is Cancel. Without a multi-window backend egui embeds the
+    /// Closing Raw Developer's window is Cancel. Without a multi-window backend egui embeds the
     /// "window" (`ViewportClass::EmbeddedWindow`), and the close request comes from the window
     /// it is drawn in; the overlay fallback (`embed_viewports`) keeps the dialog open.
     #[test]
@@ -1295,7 +1295,7 @@ mod tests {
         menu(&mut app, &ctx, "filter.cameraRaw", &json!({"ui": {"set": {"exposure": 1.0, "temperature": 30, "contrast": 20}}})).unwrap().unwrap();
         let r = menu(&mut app, &ctx, "filter.cameraRaw", &json!({"ui": {"commit": true}})).unwrap().unwrap();
         assert_eq!(r["redeveloped"], true, "{r}");
-        assert!(r.get("filter").is_some(), "contrast is applied as a Camera Raw step: {r}");
+        assert!(r.get("filter").is_some(), "contrast is applied as a Raw Developer step: {r}");
         assert!(app.camera_raw.is_none());
         assert_eq!(app.session.documents().len(), 1);
         let st = app.session.active().unwrap();
@@ -1318,7 +1318,7 @@ mod tests {
         app.ui.views[1].zoom = 3.0;
         open_raw(&mut app, &ctx, raw).unwrap();
         let before = mean_red(&app);
-        // The re-develop and the Camera Raw step run as jobs; the UI thread only polls.
+        // The re-develop and the Raw Developer step run as jobs; the UI thread only polls.
         app.background_jobs = true;
         menu(&mut app, &ctx, "filter.cameraRaw", &json!({"ui": {"set": {"exposure": 1.0, "contrast": 20}}})).unwrap().unwrap();
         let r = menu(&mut app, &ctx, "filter.cameraRaw", &json!({"ui": {"commit": true}})).unwrap().unwrap();

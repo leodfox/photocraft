@@ -1,4 +1,4 @@
-//! Filter › Lens Correction, Filter › Adaptive Wide Angle, Filter › Camera Raw Filter and
+//! Filter › Lens Correction, Filter › Adaptive Wide Angle, Filter › Raw Developer Filter and
 //! File › Automate › Lens Correction (the batch twin).
 //!
 //! The three filters act on the active pixel layer (inside the selection) or, on a smart
@@ -133,7 +133,7 @@ pub fn wide_params(cmd: &str, p: &Value, info: Option<&exif::CameraInfo>) -> Res
     Ok(wa)
 }
 
-/// Camera Raw settings (ACR names in camelCase).
+/// Raw Developer settings (ACR names in camelCase).
 pub fn raw_params(cmd: &str, p: &Value) -> Result<CameraRaw> {
     let mut q = p.clone();
     if let Value::Object(m) = &mut q {
@@ -152,12 +152,12 @@ pub fn raw_params(cmd: &str, p: &Value) -> Result<CameraRaw> {
 
 // ---------- pixels ----------
 
-/// Largest area Camera Raw develops in one pass. The pipeline holds the whole region as RGBA
+/// Largest area Raw Developer develops in one pass. The pipeline holds the whole region as RGBA
 /// f32 plus the source and result planes (≥ 48 bytes per pixel), so beyond this a document
 /// is refused with an error rather than attempted (#962).
 pub const MAX_RAW_PIXELS: u64 = 400_000_000;
 
-/// The number of pixels in `area` if Camera Raw can develop it in one pass.
+/// The number of pixels in `area` if Raw Developer can develop it in one pass.
 fn raw_pixels(area: Rect) -> Option<usize> {
     let n = u64::from(area.width()) * u64::from(area.height());
     (n <= MAX_RAW_PIXELS).then(|| usize::try_from(n).ok()).flatten()
@@ -169,7 +169,7 @@ fn rgba_region(surf: &Surface, area: Rect, len: usize) -> Vec<[f32; 4]> {
     v
 }
 
-/// Camera Raw on a surface over `area` (RGB / Gray via RGBA, at the surface's depth).
+/// Raw Developer on a surface over `area` (RGB / Gray via RGBA, at the surface's depth).
 ///
 /// An area above [`MAX_RAW_PIXELS`] is returned unchanged: the command rejects it with an
 /// error first, and this keeps the preview and Smart Filter paths from overflowing.
@@ -271,7 +271,7 @@ fn raw_enabled(s: &Session) -> std::result::Result<(), String> {
     let d = s.active().ok_or("no document open")?;
     match d.doc.mode {
         ColorMode::Rgb | ColorMode::Grayscale => Ok(()),
-        m => Err(format!("Camera Raw Filter needs an RGB or Grayscale document (this one is {m:?})")),
+        m => Err(format!("Raw Developer Filter needs an RGB or Grayscale document (this one is {m:?})")),
     }
 }
 
@@ -381,12 +381,12 @@ fn camera_raw_cmd(s: &mut Session, p: &Value) -> Result<Value> {
         if raw_pixels(area).is_none() {
             return Err(bad(
                 RAW,
-                format!("the image is too large for Camera Raw ({}×{} px; max {} megapixels)", area.width(), area.height(), MAX_RAW_PIXELS / 1_000_000),
+                format!("the image is too large for Raw Developer ({}×{} px; max {} megapixels)", area.width(), area.height(), MAX_RAW_PIXELS / 1_000_000),
             ));
         }
     }
     let t0 = Stopwatch::start();
-    let id = run_filter(s, RAW, "Camera Raw Filter", p.clone(), false, &|surf, canvas| camera_raw_surface(surf, canvas.union(&surf.content_bounds()), &cr))?;
+    let id = run_filter(s, RAW, "Raw Developer Filter", p.clone(), false, &|surf, canvas| camera_raw_surface(surf, canvas.union(&surf.content_bounds()), &cr))?;
     Ok(json!({"layer": id.0, "identity": cr.is_identity(), "ms": t0.ms()}))
 }
 
@@ -438,7 +438,7 @@ pub fn specs() -> Vec<CommandSpec> {
         },
         CommandSpec {
             id: RAW,
-            label: "Camera Raw Filter…",
+            label: "Raw Developer Filter…",
             menu: &["Filter"],
             shortcut: Some("Cmd+Shift+A"),
             params: r##"{"temperature":-100..100=0,"tint":-100..100=0,"exposure":-5..5=0,"contrast":-100..100=0,"highlights":-100..100=0,"shadows":-100..100=0,"whites":-100..100=0,"blacks":-100..100=0,"texture":-100..100=0,"clarity":-100..100=0,"dehaze":-100..100=0,"vibrance":-100..100=0,"saturation":-100..100=0,"curveHighlights":-100..100=0,"curveLights":-100..100=0,"curveDarks":-100..100=0,"curveShadows":-100..100=0,"curveSplits":[25,50,75],"pointCurve":[[in,out]],"pointCurveRed":[[in,out]],"pointCurveGreen":[[in,out]],"pointCurveBlue":[[in,out]],"hslHue":[8],"hslSat":[8],"hslLum":[8],"gradeShadows":{"hue":deg,"sat":0..100,"lum":-100..100},"gradeMidtones":{},"gradeHighlights":{},"gradeGlobal":{},"gradeBlending":0..100=50,"gradeBalance":-100..100=0,"sharpenAmount":0..150=0,"sharpenRadius":0.5..3=1,"sharpenDetail":0..100=25,"sharpenMasking":0..100=0,"noiseLuminance":0..100=0,"noiseLuminanceDetail":0..100=50,"noiseColor":0..100=0,"noiseColorDetail":0..100=50,"grainAmount":0..100=0,"grainSize":0..100=25,"grainRoughness":0..100=50,"vignetteAmount":-100..100=0,"vignetteMidpoint":0..100=50,"vignetteRoundness":-100..100=0,"vignetteFeather":0..100=50,"vignetteHighlights":0..100=0,"vignetteStyle":"highlightPriority|colorPriority|paintOverlay","seed":u32=0}"##,

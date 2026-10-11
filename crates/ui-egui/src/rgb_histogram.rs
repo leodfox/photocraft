@@ -1,4 +1,4 @@
-//! Camera Raw-style continuous RGB ribbons. Raw bins remain exact; display filtering is local.
+//! Raw Developer-style continuous RGB ribbons. Raw bins remain exact; display filtering is local.
 use crate::theme::Tokens;
 use egui::{Mesh, Rect, pos2};
 use photocraft_algo::histogram::{BINS, RgbHistogram};
@@ -121,7 +121,7 @@ pub(crate) fn paint(painter: &egui::Painter, rect: Rect, h: &RgbHistogram, t: &T
     }
 }
 
-/// One neutral tone marker, using the same RGB weights as Camera Raw's tone controls.
+/// One neutral tone marker, using the same RGB weights as Raw Developer's tone controls.
 /// This is a constant-size overlay, independent of bin counting and normalization.
 pub(crate) fn paint_sample(painter: &egui::Painter, rect: Rect, rgb: [f32; 3], t: &Tokens) {
     if !rect.is_finite() || !rect.is_positive() || !rgb.iter().all(|x| x.is_finite()) {

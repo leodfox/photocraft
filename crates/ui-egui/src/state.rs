@@ -27,7 +27,7 @@ pub struct CurvesEditorState {
     pub gesture: PointCurveState,
 }
 
-/// Camera Raw scope preferences are view state, never filter parameters or document history.
+/// Raw Developer scope preferences are view state, never filter parameters or document history.
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", default)]
 pub struct CameraRawScopeState {
@@ -44,7 +44,7 @@ pub struct CameraRawScopeState {
     pub floating_rect: Option<[f32; 4]>,
 }
 
-/// Camera Raw navigation, separate from filter settings. Reset for each opened image.
+/// Raw Developer navigation, separate from filter settings. Reset for each opened image.
 #[derive(Clone, Copy, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", default)]
 pub struct CameraRawPreviewState {
@@ -351,10 +351,10 @@ pub struct Panels {
     /// What Tab hid (toolbar, options bar, dock), so a second Tab brings back just those.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub hidden_by_tab: Option<[bool; 3]>,
-    /// The right dock's icon rail. An app that embeds PhotoCraft's UI can hide it for a simpler view.
+    /// The right dock's icon rail. An app that embeds Ardoise Photo's UI can hide it for a simpler view.
     #[serde(default = "yes")]
     pub rail: bool,
-    /// The title bar with the in-window menus. An app that embeds PhotoCraft's UI and draws its own
+    /// The title bar with the in-window menus. An app that embeds Ardoise Photo's UI and draws its own
     /// bar can hide it; the caption buttons of a custom title bar go with it.
     #[serde(default = "yes")]
     pub menu_bar: bool,

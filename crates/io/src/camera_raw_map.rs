@@ -1,4 +1,4 @@
-//! Camera Raw Filter descriptors observed in real PSD files (filter version 18.4, process 6).
+//! Raw Developer Filter descriptors observed in real PSD files (filter version 18.4, process 6).
 //! Verified develop controls are editable. Other processing versions
 //! or settings retain the entire filter through the existing opaque-filter path.
 use photocraft_algo::camera_raw::CameraRaw;
@@ -218,9 +218,9 @@ fn supported_param(key: &str) -> bool {
 }
 
 fn write_number(d: &mut Descriptor, key: &str, value: &J) -> Result<(), String> {
-    let number = value.as_f64().filter(|v| v.is_finite()).ok_or_else(|| format!("Camera Raw {key} must be finite"))?;
+    let number = value.as_f64().filter(|v| v.is_finite()).ok_or_else(|| format!("Raw Developer {key} must be finite"))?;
     if !number_range(key).contains(&number) {
-        return Err(format!("Camera Raw {key} is outside the supported range"));
+        return Err(format!("Raw Developer {key} is outside the supported range"));
     }
     // PSD stores these as integer slider levels; PhotoCraft's sliders are continuous. Rounding
     // (at most half a level) keeps the filter instead of leaving it out of the PSD.
@@ -235,33 +235,33 @@ fn write_number(d: &mut Descriptor, key: &str, value: &J) -> Result<(), String> 
 }
 
 pub(super) fn export_item(params: &J) -> Result<Descriptor, String> {
-    let object = params.as_object().ok_or("Camera Raw parameters must be an object")?;
-    let defaults = default_params().ok_or("cannot encode Camera Raw defaults")?;
+    let object = params.as_object().ok_or("Raw Developer parameters must be an object")?;
+    let defaults = default_params().ok_or("cannot encode Raw Developer defaults")?;
     for key in object.keys() {
         if key != "layer" && !key.starts_with("__") && defaults.get(key).is_none() {
-            return Err(format!("Camera Raw setting `{key}` has no verified PSD mapping"));
+            return Err(format!("Raw Developer setting `{key}` has no verified PSD mapping"));
         }
     }
     for wheel in ["gradeShadows", "gradeMidtones", "gradeHighlights", "gradeGlobal"] {
         if params.get(wheel).and_then(J::as_object).is_some_and(|v| v.keys().any(|k| !matches!(k.as_str(), "hue" | "sat" | "lum"))) {
-            return Err(format!("Camera Raw `{wheel}` contains an unknown wheel setting"));
+            return Err(format!("Raw Developer `{wheel}` contains an unknown wheel setting"));
         }
     }
     // Bound variable-sized curves before deserialization allocates their point arrays.
     for (param, _) in CURVES {
         if params.get(*param).and_then(J::as_array).is_some_and(|v| v.len() > photocraft_algo::camera_raw::MAX_CURVE_POINTS) {
-            return Err(format!("Camera Raw `{param}` has too many points"));
+            return Err(format!("Raw Developer `{param}` has too many points"));
         }
     }
     let mut item = if let Some(raw) = object.get(TEMPLATE_KEY) {
-        let raw = raw.as_str().ok_or("Camera Raw PSD template must be hex text")?;
+        let raw = raw.as_str().ok_or("Raw Developer PSD template must be hex text")?;
         if raw.len() > MAX_TEMPLATE_BYTES * 2 {
-            return Err("Camera Raw PSD template is too large".into());
+            return Err("Raw Developer PSD template is too large".into());
         }
-        let bytes = from_hex(raw).ok_or("Camera Raw PSD template is not valid hex")?;
-        let item = Descriptor::from_bytes(&bytes).map_err(|e| format!("bad Camera Raw PSD template: {e}"))?;
+        let bytes = from_hex(raw).ok_or("Raw Developer PSD template is not valid hex")?;
+        let item = Descriptor::from_bytes(&bytes).map_err(|e| format!("bad Raw Developer PSD template: {e}"))?;
         if !item.class_id.is("filterFX") || int(&item, "filterID") != Some(FILTER_ID) || get_desc(&item, "Fltr").and_then(descriptor_params).is_none() {
-            return Err("Camera Raw PSD template is not a supported Camera Raw filter".into());
+            return Err("Raw Developer PSD template is not a supported Raw Developer filter".into());
         }
         item
     } else {
@@ -281,19 +281,19 @@ pub(super) fn export_item(params: &J) -> Result<Descriptor, String> {
             )
             .with("filterID", Value::Integer(FILTER_ID))
     };
-    let typed: CameraRaw = serde_json::from_value(params.clone()).map_err(|e| format!("bad Camera Raw parameters: {e}"))?;
+    let typed: CameraRaw = serde_json::from_value(params.clone()).map_err(|e| format!("bad Raw Developer parameters: {e}"))?;
     typed.validate()?;
     let normalized = serde_json::to_value(typed).map_err(|e| e.to_string())?;
-    for (key, value) in normalized.as_object().ok_or("cannot encode Camera Raw parameters")? {
+    for (key, value) in normalized.as_object().ok_or("cannot encode Raw Developer parameters")? {
         if !supported_param(key) && defaults.get(key) != Some(value) {
-            return Err(format!("Camera Raw setting `{key}` has no verified PSD mapping"));
+            return Err(format!("Raw Developer setting `{key}` has no verified PSD mapping"));
         }
     }
     validate_splits(&normalized)?;
-    let mut d = get_desc(&item, "Fltr").cloned().ok_or("Camera Raw PSD template has no filter settings")?;
-    let original = descriptor_params(&d).ok_or("unsupported Camera Raw processing version or settings")?;
+    let mut d = get_desc(&item, "Fltr").cloned().ok_or("Raw Developer PSD template has no filter settings")?;
+    let original = descriptor_params(&d).ok_or("unsupported Raw Developer processing version or settings")?;
     for (param, key) in SCALARS {
-        let value = get_param(&normalized, param).ok_or("missing Camera Raw parameter")?;
+        let value = get_param(&normalized, param).ok_or("missing Raw Developer parameter")?;
         if get_param(&original, param) != Some(value) {
             write_number(&mut d, key, value)?;
             if matches!(*key, "Temp" | "Tint") {
@@ -306,18 +306,18 @@ pub(super) fn export_item(params: &J) -> Result<Descriptor, String> {
         }
     }
     for (param, key) in CURVES {
-        let value = normalized.get(*param).ok_or("missing Camera Raw curve")?;
+        let value = normalized.get(*param).ok_or("missing Raw Developer curve")?;
         if original.get(*param) != Some(value) {
-            let points = value.as_array().ok_or("Camera Raw curve must be an array")?;
+            let points = value.as_array().ok_or("Raw Developer curve must be an array")?;
             let mut levels: Vec<[f32; 2]> = Vec::new();
             for point in points {
                 let mut level = [0.0; 2];
-                let coordinates = point.as_array().filter(|c| c.len() == 2).ok_or("Camera Raw curve point must contain two coordinates")?;
+                let coordinates = point.as_array().filter(|c| c.len() == 2).ok_or("Raw Developer curve point must contain two coordinates")?;
                 for (out, coordinate) in level.iter_mut().zip(coordinates) {
                     let number = coordinate
                         .as_f64()
                         .filter(|v| v.is_finite() && (0.0..=255.0).contains(v))
-                        .ok_or("Camera Raw curve coordinates must be levels 0–255")?;
+                        .ok_or("Raw Developer curve coordinates must be levels 0–255")?;
                     *out = number.round() as f32;
                 }
                 levels.push(level);
@@ -325,14 +325,14 @@ pub(super) fn export_item(params: &J) -> Result<Descriptor, String> {
             if levels.is_empty() {
                 levels = vec![[0.0, 0.0], [255.0, 255.0]];
             }
-            photocraft_algo::camera_raw::validate_curve(&levels).map_err(|e| format!("Camera Raw `{param}`: {e}"))?;
+            photocraft_algo::camera_raw::validate_curve(&levels).map_err(|e| format!("Raw Developer `{param}`: {e}"))?;
             let values = levels.iter().flatten().map(|v| Value::Integer(*v as i32)).collect();
             set(&mut d, key, Value::List(values));
         }
     }
     for (param, keys) in ARRAYS {
         for (index, key) in keys.iter().enumerate() {
-            let value = normalized.get(*param).and_then(|v| v.get(index)).ok_or("missing Camera Raw array parameter")?;
+            let value = normalized.get(*param).and_then(|v| v.get(index)).ok_or("missing Raw Developer array parameter")?;
             if original.get(*param).and_then(|v| v.get(index)) != Some(value) {
                 write_number(&mut d, key, value)?;
             }
@@ -512,7 +512,7 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "requires a user-supplied Camera Raw PSD"]
+    #[ignore = "requires a user-supplied Raw Developer PSD"]
     fn all_sliders_fixture() {
         let path = std::env::var("PHOTOCRAFT_CAMERA_RAW_PSD").expect("set PHOTOCRAFT_CAMERA_RAW_PSD");
         let doc = crate::import("fixture.psd", &std::fs::read(path).unwrap()).unwrap().document;
@@ -526,7 +526,7 @@ mod tests {
                     get_desc(&item, "Fltr").is_some_and(|d| d.class_id.is(CLASS)).then_some(item)
                 })
             })
-            .expect("a Camera Raw descriptor");
+            .expect("a Raw Developer descriptor");
         assert_eq!(item_for_filter(&filter_from_item(&original)).unwrap(), original);
         let mut projected = original.clone();
         let mut d = get_desc(&original, "Fltr").unwrap().clone();

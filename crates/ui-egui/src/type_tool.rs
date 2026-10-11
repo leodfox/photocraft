@@ -838,7 +838,7 @@ pub(crate) fn selected_style(style: &photocraft_doc::text::CharStyle) -> String 
 
 /// Localized style label for the dropdown. The raw string stays the engine's `fontStyle` key;
 /// the words (weights and "Italic") are translated in the `fontWeight` context, where "Light"
-/// means a weight — unlike the Camera Raw "Light" section.
+/// means a weight — unlike the Raw Developer "Light" section.
 pub fn style_label(style: &str) -> String {
     style.split(' ').map(|w| crate::i18n::tr_ctx(crate::i18n::current(), "fontWeight", w)).collect::<Vec<_>>().join(" ")
 }

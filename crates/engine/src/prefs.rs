@@ -843,7 +843,7 @@ pub struct RawDefaults {
     pub sharpen_for: RawSharpen,
     pub open_as_smart_object: bool,
     pub apply_auto_tone: bool,
-    /// Opening a raw file interactively shows the Camera Raw dialog first (Open / Cancel), as
+    /// Opening a raw file interactively shows the Raw Developer dialog first (Open / Cancel), as
     /// Photoshop does; off develops it with the defaults straight away. Automation opens never
     /// show the dialog.
     pub open_in_camera_raw: bool,
@@ -962,7 +962,7 @@ pub const SECTIONS: [(&str, &str); 18] = [
     ("plugIns", "Plug-ins"),
     ("type", "Type"),
     ("enhancedControls", "Enhanced Controls"),
-    ("rawDefaults", "Camera Raw Defaults"),
+    ("rawDefaults", "Raw Developer Defaults"),
     ("integrations", "Integrations"),
 ];
 
@@ -1883,7 +1883,7 @@ pub fn specs() -> Vec<CommandSpec> {
         section!("edit.preferences.plugIns", "Plug-ins…"),
         section!("edit.preferences.type", "Type…"),
         section!("edit.preferences.enhancedControls", "Enhanced Controls…"),
-        section!("edit.preferences.rawDefaults", "Camera Raw…"),
+        section!("edit.preferences.rawDefaults", "Raw Developer…"),
         section!("edit.preferences.integrations", "Integrations…"),
         spec!(
             "edit.keyboardShortcuts",

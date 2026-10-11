@@ -14,7 +14,7 @@
 # Clean-room: every entry was written from the plain meaning of the English label using the
 # image-editing vocabulary in everyday use in Taiwan (圖層, 遮色片, 選取範圍, 濾鏡, 色階 ...). No
 # proprietary localisation resource, string table or product UI was consulted or copied; add
-# entries the same way. Product and technology names (PhotoCraft, ArtCraft, OpenType, CMYK, Lab ...)
+# entries the same way. Product and technology names (Ardoise Photo, Ardoise, OpenType, CMYK, Lab ...)
 # and paper sizes (Legal, Tabloid) stay in Latin letters; the trailing "…" of dialog commands is
 # kept. Full-width punctuation (，。：) inside sentences; half-width parentheses and the " · "
 # separators as in the English.
@@ -70,7 +70,7 @@
 	Layer Comps to Files…	圖層構圖轉檔案…
 	Color Lookup Tables…	色彩查詢表…
 	Data Sets as Files…	資料組轉檔案…
-	Paths to Illustrator…	路徑轉 Illustrator…
+	Paths to Vector File…	路徑轉 Illustrator…
 	Render Video…	轉譯視訊…
 	Generate	產生
 	Image Assets	影像資產
@@ -183,7 +183,7 @@
 	Plug-ins…	增效模組…
 	Type…	文字…
 	Enhanced Controls…	增強控制項…
-	Camera Raw…	Camera Raw…
+	Raw Developer…	Raw Developer…
 	Raw Defaults…	Raw 預設值…
 	Integrations…	整合…
 	AI Integrations…	AI 整合…
@@ -503,7 +503,7 @@
 	Last Filter	上次濾鏡
 	Filter Gallery…	濾鏡收藏館…
 	Adaptive Wide Angle…	最適化廣角…
-	Camera Raw Filter…	Camera Raw 濾鏡…
+	Raw Developer Filter…	Raw Developer 濾鏡…
 	Liquify…	液化…
 	Vanishing Point…	消失點…
 	Blur	模糊
@@ -731,11 +731,11 @@
 	Timeline	時間軸
 	Tool Presets	工具預設集
 	Tools	工具
-	About PhotoCraft	關於 PhotoCraft
-	PhotoCraft Website	PhotoCraft 網站
-	PhotoCraft on GitHub	GitHub 上的 PhotoCraft
-	ArtCraft Website	ArtCraft 網站
-	Join the ArtCraft Discord…	加入 ArtCraft Discord…
+	About Ardoise Photo	關於 Ardoise Photo
+	Ardoise Photo Website	Ardoise Photo 網站
+	Ardoise Photo on GitHub	GitHub 上的 Ardoise Photo
+	Ardoise Website	Ardoise 網站
+	Join the Ardoise Discord…	加入 Ardoise Discord…
 	Report an Issue…	回報問題…
 	WIA Support…	WIA 支援…
 	Apply	套用
@@ -785,7 +785,7 @@
 	All Caps	全部大寫
 	All Slices	所有切片
 	All User Slices	所有使用者切片
-	All shortcuts reset to PhotoCraft defaults.	所有快速鍵已重設為 PhotoCraft 預設值。
+	All shortcuts reset to Ardoise Photo defaults.	所有快速鍵已重設為 Ardoise Photo 預設值。
 	Alt	Alt
 	Always use pressure for opacity	一律以壓力控制不透明度
 	Always use pressure for size	一律以壓力控制大小
@@ -843,7 +843,7 @@
 	Brush Reconstruct Options	筆刷重建選項
 	Brush Tool Options	筆刷工具選項
 	Cache Level:	快取層級：
-	Camera Raw isn't open	Camera Raw 未開啟
+	Raw Developer isn't open	Raw Developer 未開啟
 	Cancel	取消
 	Cancel (Esc)	取消 (Esc)
 	Cancel any current edits (Esc)	取消目前所有編輯 (Esc)
@@ -1021,8 +1021,8 @@
 	Drop an image or PSD anywhere to open it.	將影像或 PSD 拖放到任何位置即可開啟。
 	Native file drag-and-drop is unavailable	Wayland 不支援原生檔案拖放
 	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or copy the image in your file manager and paste it with {paste}.	Wayland 尚未支援原生檔案拖放。請使用「檔案 › 開啟」，或在檔案管理員中複製影像後使用 {paste} 貼上。
-	To drop files, start PhotoCraft under XWayland: `{command}`	若要拖放檔案，請在 XWayland 下啟動 PhotoCraft：`{command}`
-	Or set Preferences › Performance › Linux display server to X11: PhotoCraft then always starts under XWayland.	或將 偏好設定 › 效能 › Linux 顯示伺服器 設為 X11：PhotoCraft 之後一律在 XWayland 下啟動。
+	To drop files, start Ardoise Photo under XWayland: `{command}`	若要拖放檔案，請在 XWayland 下啟動 Ardoise Photo：`{command}`
+	Or set Preferences › Performance › Linux display server to X11: Ardoise Photo then always starts under XWayland.	或將 偏好設定 › 效能 › Linux 顯示伺服器 設為 X11：Ardoise Photo 之後一律在 XWayland 下啟動。
 	Edit › Paste	「編輯 › 貼上」
 	Duplicate Layers…	複製圖層…
 	Duplicate style	複製樣式
@@ -1267,9 +1267,9 @@
 	Perspective Warp is not active	透視彎曲未啟用
 	Perspective Warp: draw planes along the image's perspective, then switch to Warp	透視彎曲：沿影像透視繪製平面，然後切換到彎曲
 	Photo Filter	相片濾鏡
-	PhotoCraft	PhotoCraft
-	PhotoCraft Manages Colors	PhotoCraft 管理色彩
-	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — 以 Rust 撰寫的開放原始碼原生影像編輯器。
+	Ardoise Photo	Ardoise Photo
+	Ardoise Photo Manages Colors	Ardoise Photo 管理色彩
+	Ardoise Photo — an open-source, native image editor written in Rust.	Ardoise Photo — 以 Rust 撰寫的開放原始碼原生影像編輯器。
 	Pin Depth:	圖釘深度：
 	Pixel Length:	像素長度：
 	Pixels/Centimeter	像素/公分
@@ -1345,11 +1345,11 @@
 	Import Shortcuts…	匯入快速鍵…
 	Load a keyboard shortcut set saved as .kys	載入儲存為 .kys 的鍵盤快速鍵集
 	Imported {n} shortcuts from {file}. Click OK to keep them.	已從 {file} 匯入 {n} 個快速鍵。按一下「確定」即可保留。
-	{n} commands are not in PhotoCraft.	{n} 個命令在 PhotoCraft 中不存在。
+	{n} commands are not in Ardoise Photo.	{n} 個命令在 Ardoise Photo 中不存在。
 	Keyboard shortcuts imported	已匯入鍵盤快速鍵
 	Your keyboard shortcut set {set} is in use here: {n} shortcuts differ from the defaults. Edit › Keyboard Shortcuts shows them; Reset All to Defaults undoes this.	此處正在使用你的鍵盤快速鍵集 {set}：{n} 個快速鍵與預設值不同。可在「編輯 › 鍵盤快速鍵」中查看；「全部重設為預設值」可復原。
 	Import keyboard shortcuts?	匯入鍵盤快速鍵？
-	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	PhotoCraft 在這台電腦上找到你在其他影像編輯器中的鍵盤快速鍵集 {set}：其中 {n} 個快速鍵與 PhotoCraft 不同。要匯入嗎？
+	Ardoise Photo found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from Ardoise Photo's. Import it?	Ardoise Photo 在這台電腦上找到你在其他影像編輯器中的鍵盤快速鍵集 {set}：其中 {n} 個快速鍵與 Ardoise Photo 不同。要匯入嗎？
 	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	「編輯 › 鍵盤快速鍵 › 全部重設為預設值」可復原匯入。
 	Don't Import	不匯入
 	The keyboard shortcut set was not imported: {error}	未匯入鍵盤快速鍵集：{error}
@@ -1536,7 +1536,7 @@
 	Apple Watch 45mm	Apple Watch 45mm
 	Aqua	水藍色
 	Art & Illustration	藝術與插畫
-	ArtCraft	ArtCraft
+	Ardoise	Ardoise
 	Background Eraser Tool	背景橡皮擦工具
 	Bevel & Emboss	斜角和浮雕
 	Blend Mode	混合模式
@@ -1574,7 +1574,7 @@
 	Current Tool	目前工具
 	Custom Shape Tool	自訂形狀工具
 	Cyans	青色系
-	Default PhotoCraft Size	預設 PhotoCraft 尺寸
+	Default Ardoise Photo Size	預設 Ardoise Photo 尺寸
 	Delete Workspace	刪除工作區
 	Diamond	菱形
 	Dimensions:	尺寸：
@@ -1678,7 +1678,7 @@
 	Pen Tilt	筆傾斜
 	Pen Tool	筆型工具
 	Photo	相片
-	PhotoCraft website	PhotoCraft 網站
+	Ardoise Photo website	Ardoise Photo 網站
 	Picas	派卡
 	Pillow Emboss	枕狀浮雕
 	Pixel Replacement	像素取代
@@ -1798,7 +1798,7 @@
 	Brush preview color	筆刷預視顏色
 	Cache levels	快取層級
 	Cache tile size	快取拼貼大小
-	Camera Raw Defaults	Camera Raw 預設值
+	Raw Developer Defaults	Raw Developer 預設值
 	Canvas border	畫布邊框
 	Canvas color	畫布顏色
 	Canvas custom color	畫布自訂顏色
@@ -1877,7 +1877,7 @@
 	Never	永不
 	Normal tip	一般筆尖
 	Open as smart object	以智慧型物件開啟
-	Open in camera raw	在 Camera Raw 中開啟
+	Open in camera raw	在 Raw Developer 中開啟
 	Open documents as tabs	以索引標籤開啟文件
 	Overscroll	超出捲動
 	Performance	效能
@@ -2000,7 +2000,7 @@
 	System Info	系統資訊
 	More panels	更多面板
 	More documents	更多文件
-	These settings aren't available in PhotoCraft yet.	這些設定在 PhotoCraft 中尚未提供。
+	These settings aren't available in Ardoise Photo yet.	這些設定在 Ardoise Photo 中尚未提供。
 	Graphics	圖形
 	Reset GPU Backend	重設 GPU 後端
 	Applies at next launch.	下次啟動時套用。
@@ -2111,7 +2111,7 @@
 	Automatic uses GPU acceleration when available and falls back to CPU rendering on errors.	自動模式會在可用時使用 GPU 加速，發生錯誤時改用 CPU 渲染。
 	Switched to CPU rendering	已改用 CPU 渲染
 	GPU acceleration could not continue. Your documents are unchanged.	GPU 加速無法繼續。您的文件未變更。
-	PhotoCraft is using the CPU image compositor. The window may still use your graphics adapter.	PhotoCraft 正使用 CPU 合成影像。視窗仍可能使用您的顯示卡。
+	Ardoise Photo is using the CPU image compositor. The window may still use your graphics adapter.	Ardoise Photo 正使用 CPU 合成影像。視窗仍可能使用您的顯示卡。
 	Retry GPU requires a restart. Save your work first.	重試 GPU 需要重新啟動。請先儲存您的工作。
 	Keep Using CPU	繼續使用 CPU
 	Retry GPU	重試 GPU
@@ -2129,9 +2129,9 @@
 	Tone Histogram	色調直方圖
 	Show Selected Region	顯示選取區域
 cameraRaw	Light	光線
-# Camera Raw: contextual controls and window title
-	Camera Raw Filter ({layer})	Camera Raw 濾鏡（{layer}）
-	Camera Raw ({name})	Camera Raw（{name}）
+# Raw Developer: contextual controls and window title
+	Raw Developer Filter ({layer})	Raw Developer 濾鏡（{layer}）
+	Raw Developer ({name})	Raw Developer（{name}）
 cameraRaw	Lights	亮調
 cameraRaw	Darks	暗調
 cameraRaw	Blacks	黑色色階
@@ -2327,7 +2327,7 @@ fontWeight	Italic	斜體
 	Color to Alpha…	顏色轉為 Alpha…
 	Transparency Threshold	透明度臨界值
 	Opacity Threshold	不透明度臨界值
-	PhotoCraft — Screen Color Picker	PhotoCraft — 螢幕取色器
+	Ardoise Photo — Screen Color Picker	Ardoise Photo — 螢幕取色器
 
 	Rasterize svg groups deeper than	點陣化超過此深度的 SVG 群組
 	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	設為 0 可關閉此臨界值；巢狀超過 100 層的 SVG 群組一律會點陣化。

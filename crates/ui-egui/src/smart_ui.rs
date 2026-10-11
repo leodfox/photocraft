@@ -21,7 +21,7 @@ pub fn thumb_badge(ui: &egui::Ui, l: &Layer, thumb: Rect) {
 }
 
 /// The display name of a smart filter (its command's label without the ellipsis). A Photoshop
-/// filter PhotoCraft doesn't implement shows its own name and is marked as kept as is.
+/// filter Ardoise Photo doesn't implement shows its own name and is marked as kept as is.
 fn filter_label(f: &photocraft_doc::SmartFilter) -> String {
     let command = f.command.as_str();
     if command == photocraft_engine::smart_cmds::UNSUPPORTED_FILTER {
@@ -88,7 +88,7 @@ pub fn filter_rows(app: &mut PhotocraftApp, ui: &mut egui::Ui, l: &Layer, depth:
 /// `layer.smartFilter.setParams` instead of adding another filter (see `dialogs::confirm`).
 pub fn open_editor(app: &mut PhotocraftApp, ctx: &egui::Context, layer: u64, sm: &SmartObject, index: usize) {
     let Some(f) = sm.smart_filters.get(index) else { return };
-    // Camera Raw has its own full-window dialog rather than a generic parameter form.
+    // Raw Developer has its own full-window dialog rather than a generic parameter form.
     if f.command == photocraft_engine::lens_cmds::RAW {
         if let Err(e) = crate::camera_raw_ui::open_smart_filter(app, ctx, photocraft_doc::LayerId(layer), index) {
             app.ui.status = e;

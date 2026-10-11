@@ -1,4 +1,4 @@
-//! Shared point-curve semantics for Camera Raw, adjustment dialogs and layer Properties.
+//! Shared point-curve semantics for Raw Developer, adjustment dialogs and layer Properties.
 //! Hosts own typed gesture state and rendering; this module only edits their point data.
 use crate::state::{PointCurveDrag, PointCurveState};
 use egui::{Key, Modifiers, Pos2, Rect, Response, Ui, pos2};

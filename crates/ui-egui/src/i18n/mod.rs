@@ -529,7 +529,7 @@ mod tests {
         assert_eq!(tr_id(uk, "select.all", "All"), "Виділити все");
         assert_eq!(tr_ctx(uk, "cameraRaw", "Light"), "Світло");
         assert_eq!(tr_ctx(uk, "fontWeight", "Light"), "Легкий");
-        assert_eq!(fmt(tr(uk, "Camera Raw Filter ({layer})"), &[("layer", "Background")]), "Фільтр Camera Raw (Background)");
+        assert_eq!(fmt(tr(uk, "Raw Developer Filter ({layer})"), &[("layer", "Background")]), "Фільтр Raw Developer (Background)");
         for key in ["Alt", "⌥"] {
             assert_eq!(
                 fmt(tr(uk, "Add a mask  (from the selection; {key} inverts)"), &[("key", key)]),
@@ -821,7 +821,7 @@ mod tests {
     }
 
     /// Font style labels are built from dynamic words (weights, "Italic"), so the literal
-    /// scanner cannot cover them; "Light" there is a weight, distinct from the Camera Raw
+    /// scanner cannot cover them; "Light" there is a weight, distinct from the Raw Developer
     /// "Light" section (`type_tool::style_label`).
     #[test]
     fn font_weight_names_are_translated() {
@@ -830,7 +830,7 @@ mod tests {
             for t in TERMS {
                 assert!(lang.0.catalog().contextual("fontWeight", t).is_some(), "{} missing font weight: {t}", lang.code());
             }
-            assert_ne!(tr_ctx(lang, "cameraRaw", "Light"), tr_ctx(lang, "fontWeight", "Light"), "{}: Camera Raw Light vs the font weight", lang.code());
+            assert_ne!(tr_ctx(lang, "cameraRaw", "Light"), tr_ctx(lang, "fontWeight", "Light"), "{}: Raw Developer Light vs the font weight", lang.code());
         }
     }
 
@@ -885,7 +885,7 @@ mod tests {
         }
     }
 
-    /// Camera Raw includes dynamic colour-band labels and contextual labels that the generic
+    /// Raw Developer includes dynamic colour-band labels and contextual labels that the generic
     /// tl! scanner cannot see. Cover the partial catalog too, without claiming whole-app coverage.
     #[test]
     fn camera_raw_labels_are_translated_in_every_available_language() {
@@ -903,19 +903,19 @@ mod tests {
         for band in bands.split('"').skip(1).step_by(2) {
             labels.insert(band);
         }
-        assert!(labels.len() >= 66, "missing Camera Raw source labels: {labels:?}");
+        assert!(labels.len() >= 66, "missing Raw Developer source labels: {labels:?}");
         for lang in Lang::all().filter(|l| *l != Lang::EN) {
             let catalog = lang.catalog();
             let missing: Vec<_> = labels.iter().filter(|s| catalog.contextual("cameraRaw", s).or_else(|| catalog.plain(s)).is_none()).collect();
-            assert!(missing.is_empty(), "{}: Camera Raw labels: {missing:?}", lang.code());
+            assert!(missing.is_empty(), "{}: Raw Developer labels: {missing:?}", lang.code());
             assert_ne!(tr_ctx(lang, "cameraRaw", "Highlights"), tr_ctx(lang, "cameraRaw", "Lights"), "{}: distinct curve regions", lang.code());
             assert_ne!(tr_ctx(lang, "cameraRaw", "Shadows"), tr_ctx(lang, "cameraRaw", "Darks"), "{}: distinct curve regions", lang.code());
         }
         let ru = Lang::from_code("ru").unwrap();
         assert_eq!(tr_ctx(ru, "cameraRaw", "Vibrance"), "Красочность");
         assert_eq!(tr_ctx(ru, "cameraRaw", "Aqua"), "Голубые");
-        let text = fmt(tr(ru, "Camera Raw Filter ({layer})"), &[("layer", "{Background} 影像")]);
-        assert_eq!(text, "Фильтр Camera Raw ({Background} 影像)", "user layer names are not translated");
+        let text = fmt(tr(ru, "Raw Developer Filter ({layer})"), &[("layer", "{Background} 影像")]);
+        assert_eq!(text, "Фильтр Raw Developer ({Background} 影像)", "user layer names are not translated");
     }
 }
 

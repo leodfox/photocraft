@@ -72,7 +72,7 @@ pub fn import_raw_tuned(name: &str, bytes: &[u8], tuning: &RawTuning) -> Result<
     } else {
         "estimated white balance".into()
     };
-    let summary = format!("developed in Camera Raw (exposure {:+.2} EV, {wb})", tuning.exposure);
+    let summary = format!("developed in Raw Developer (exposure {:+.2} EV, {wb})", tuning.exposure);
     Ok((developed_document(name, format, dev, &summary)?, wb_applied))
 }
 

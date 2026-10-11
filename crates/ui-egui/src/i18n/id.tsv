@@ -9,7 +9,7 @@
 # Clean-room: every entry was written from the plain meaning of the English label using ordinary
 # Indonesian computing vocabulary (layer, kuas, seleksi, kanvas ...). No proprietary localisation
 # resource, string table or product UI was consulted or copied; add entries the same way.
-# Product and technology names (PhotoCraft, ArtCraft, OpenType, CMYK, Lab ...) stay in Latin
+# Product and technology names (Ardoise Photo, Ardoise, OpenType, CMYK, Lab ...) stay in Latin
 # letters; the trailing "…" of dialog commands is kept.
 	File	Berkas
 	Edit	Edit
@@ -61,7 +61,7 @@
 	Layer Comps to Files…	Layer Comp ke Berkas…
 	Color Lookup Tables…	Tabel Color Lookup…
 	Data Sets as Files…	Data Set sebagai Berkas…
-	Paths to Illustrator…	Path ke Illustrator…
+	Paths to Vector File…	Path ke Illustrator…
 	Render Video…	Render Video…
 	Generate	Generate
 	Image Assets	Aset Gambar
@@ -172,7 +172,7 @@
 	Plug-ins…	Plug-in…
 	Type…	Teks…
 	Enhanced Controls…	Kontrol Lanjutan…
-	Camera Raw…	Camera Raw…
+	Raw Developer…	Raw Developer…
 	Raw Defaults…	Default Raw…
 	Integrations…	Integrasi…
 	AI Integrations…	Integrasi AI…
@@ -479,7 +479,7 @@
 	Last Filter	Filter Terakhir
 	Filter Gallery…	Galeri Filter…
 	Adaptive Wide Angle…	Adaptive Wide Angle…
-	Camera Raw Filter…	Filter Camera Raw…
+	Raw Developer Filter…	Filter Raw Developer…
 	Liquify…	Liquify…
 	Vanishing Point…	Vanishing Point…
 	Blur	Blur
@@ -707,11 +707,11 @@
 	Timeline	Timeline
 	Tool Presets	Preset Alat
 	Tools	Alat
-	About PhotoCraft	Tentang PhotoCraft
-	PhotoCraft Website	Situs Web PhotoCraft
-	PhotoCraft on GitHub	PhotoCraft di GitHub
-	ArtCraft Website	Situs Web ArtCraft
-	Join the ArtCraft Discord…	Gabung ke Discord ArtCraft…
+	About Ardoise Photo	Tentang Ardoise Photo
+	Ardoise Photo Website	Situs Web Ardoise Photo
+	Ardoise Photo on GitHub	Ardoise Photo di GitHub
+	Ardoise Website	Situs Web Ardoise
+	Join the Ardoise Discord…	Gabung ke Discord Ardoise…
 	Report an Issue…	Laporkan Masalah…
 	WIA Support…	Dukungan WIA…
 	Apply	Terapkan
@@ -761,7 +761,7 @@
 	All Caps	Huruf Kapital Semua
 	All Slices	Semua Slice
 	All User Slices	Semua Slice Pengguna
-	All shortcuts reset to PhotoCraft defaults.	Semua pintasan direset ke default PhotoCraft.
+	All shortcuts reset to Ardoise Photo defaults.	Semua pintasan direset ke default Ardoise Photo.
 	Alt	Alt
 	Alt-click to define a source point to clone from	Alt-klik untuk menentukan titik sumber yang mau di-clone
 	Always use pressure for opacity	Selalu pakai tekanan untuk opasitas
@@ -820,7 +820,7 @@
 	Brush Reconstruct Options	Opsi Rekonstruksi Kuas
 	Brush Tool Options	Opsi Alat Kuas
 	Cache Level:	Level Cache:
-	Camera Raw isn't open	Camera Raw tidak terbuka
+	Raw Developer isn't open	Raw Developer tidak terbuka
 	Cancel	Batal
 	Cancel (Esc)	Batal (Esc)
 	Cancel any current edits (Esc)	Batalkan semua pengeditan saat ini (Esc)
@@ -1238,9 +1238,9 @@
 	Perspective Warp is not active	Perspective Warp tidak aktif
 	Perspective Warp: draw planes along the image's perspective, then switch to Warp	Perspective Warp: gambar bidang mengikuti perspektif gambar, lalu pindah ke Warp
 	Photo Filter	Filter Foto
-	PhotoCraft	PhotoCraft
-	PhotoCraft Manages Colors	PhotoCraft Mengelola Warna
-	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — editor gambar native open-source yang ditulis dengan Rust.
+	Ardoise Photo	Ardoise Photo
+	Ardoise Photo Manages Colors	Ardoise Photo Mengelola Warna
+	Ardoise Photo — an open-source, native image editor written in Rust.	Ardoise Photo — editor gambar native open-source yang ditulis dengan Rust.
 	Pin Depth:	Kedalaman Pin:
 	Pixel Length:	Panjang Piksel:
 	Pixels/Centimeter	Piksel/Sentimeter
@@ -1316,11 +1316,11 @@
 	Import Shortcuts…	Impor Pintasan…
 	Load a keyboard shortcut set saved as .kys	Muat set pintasan keyboard yang disimpan sebagai .kys
 	Imported {n} shortcuts from {file}. Click OK to keep them.	{n} pintasan diimpor dari {file}. Klik OK untuk menyimpannya.
-	{n} commands are not in PhotoCraft.	{n} perintah tidak ada di PhotoCraft.
+	{n} commands are not in Ardoise Photo.	{n} perintah tidak ada di Ardoise Photo.
 	Keyboard shortcuts imported	Pintasan keyboard diimpor
 	Your keyboard shortcut set {set} is in use here: {n} shortcuts differ from the defaults. Edit › Keyboard Shortcuts shows them; Reset All to Defaults undoes this.	Set pintasan keyboard Anda {set} dipakai di sini: {n} pintasan berbeda dari bawaan. Edit › Pintasan Keyboard menampilkannya; Setel Ulang Semua ke Bawaan membatalkannya.
 	Import keyboard shortcuts?	Impor pintasan keyboard?
-	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	PhotoCraft menemukan set pintasan keyboard Anda {set} dari editor gambar lain di komputer ini: {n} pintasannya berbeda dari PhotoCraft. Impor?
+	Ardoise Photo found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from Ardoise Photo's. Import it?	Ardoise Photo menemukan set pintasan keyboard Anda {set} dari editor gambar lain di komputer ini: {n} pintasannya berbeda dari Ardoise Photo. Impor?
 	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	Edit › Pintasan Keyboard › Setel Ulang Semua ke Bawaan membatalkan impor.
 	Don't Import	Jangan Impor
 	The keyboard shortcut set was not imported: {error}	Set pintasan keyboard tidak diimpor: {error}
@@ -1503,7 +1503,7 @@
 	Apple Watch 45mm	Apple Watch 45mm
 	Aqua	Aqua
 	Art & Illustration	Seni & Ilustrasi
-	ArtCraft	ArtCraft
+	Ardoise	Ardoise
 	Background Eraser Tool	Alat Background Eraser
 	Bevel & Emboss	Bevel & Emboss
 	Blend Mode	Mode Blend
@@ -1539,7 +1539,7 @@
 	Current Tool	Alat Saat Ini
 	Custom Shape Tool	Alat Bentuk Kustom
 	Cyans	Cyan
-	Default PhotoCraft Size	Ukuran Default PhotoCraft
+	Default Ardoise Photo Size	Ukuran Default Ardoise Photo
 	Delete Workspace	Hapus Ruang Kerja
 	Diamond	Diamond
 	Dimensions:	Dimensi:
@@ -1643,7 +1643,7 @@
 	Pen Tilt	Kemiringan Pena
 	Pen Tool	Alat Pen
 	Photo	Foto
-	PhotoCraft website	Situs web PhotoCraft
+	Ardoise Photo website	Situs web Ardoise Photo
 	Picas	Pica
 	Pillow Emboss	Pillow Emboss
 	Pixel Replacement	Penggantian Piksel
@@ -1761,7 +1761,7 @@
 	Brush preview color	Warna pratinjau kuas
 	Cache levels	Level cache
 	Cache tile size	Ukuran tile cache
-	Camera Raw Defaults	Default Camera Raw
+	Raw Developer Defaults	Default Raw Developer
 	Canvas border	Border kanvas
 	Canvas color	Warna kanvas
 	Canvas custom color	Warna kustom kanvas
@@ -1840,7 +1840,7 @@
 	Never	Tidak pernah
 	Normal tip	Ujung normal
 	Open as smart object	Buka sebagai smart object
-	Open in camera raw	Buka di Camera Raw
+	Open in camera raw	Buka di Raw Developer
 	Open documents as tabs	Buka dokumen sebagai tab
 	Overscroll	Overscroll
 	Performance	Performa
@@ -1961,7 +1961,7 @@
 	System Info	Info Sistem
 	More panels	Panel lainnya
 	More documents	Dokumen lainnya
-	These settings aren't available in PhotoCraft yet.	Pengaturan ini belum tersedia di PhotoCraft.
+	These settings aren't available in Ardoise Photo yet.	Pengaturan ini belum tersedia di Ardoise Photo.
 	Graphics	Grafis
 	Reset GPU Backend	Reset Backend GPU
 	Applies at next launch.	Berlaku saat dibuka berikutnya.
@@ -2217,8 +2217,8 @@
 	Roman Hanging Punctuation	Tanda Baca Menggantung Roman
 	Avoid Widows/Orphans	Hindari Widow/Orphan
 	Compose	Komposisi
-	Adobe Single-line Composer	Adobe Single-line Composer
-	Adobe Every-line Composer	Adobe Every-line Composer
+	Single-line Composer	Single-line Composer
+	Every-line Composer	Every-line Composer
 	Justification	Justifikasi
 	Word Spacing	Spasi Kata
 	Letter Spacing	Spasi Huruf
@@ -2233,7 +2233,7 @@
 	Symbols	Simbol
 	Punctuation	Tanda Baca
 	Path:	Path:
-	Path to Illustrator…	Path ke Illustrator…
+	Path to Vector File…	Path ke Illustrator…
 	Make Work Path	Buat Work Path
 	Make Selection	Buat Seleksi
 	Fill Path	Isi Path
@@ -2518,7 +2518,7 @@
 	Add Layer Above to Selection	Tambah Layer di Atas ke Seleksi
 	Add Layer Below to Selection	Tambah Layer di Bawah ke Seleksi
 
-# Labels added on main after this catalog (depth labels, Wayland drop, profiles, Camera Raw, Patch tool, rendering mode)
+# Labels added on main after this catalog (depth labels, Wayland drop, profiles, Raw Developer, Patch tool, rendering mode)
 	8 bit	8 bit (bilangan bulat)
 	Integer	Bilangan bulat
 	16 bit	16 bit (bilangan bulat)
@@ -2527,8 +2527,8 @@
 	Use Global Light	Gunakan Cahaya Global
 	Native file drag-and-drop is unavailable	Seret dan lepas berkas native tidak tersedia
 	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or copy the image in your file manager and paste it with {paste}.	Seret dan lepas berkas native belum didukung di Wayland. Gunakan Berkas › Buka, atau salin gambar di pengelola berkas lalu tempel dengan {paste}.
-	To drop files, start PhotoCraft under XWayland: `{command}`	Untuk menjatuhkan berkas, jalankan PhotoCraft di XWayland: `{command}`
-	Or set Preferences › Performance › Linux display server to X11: PhotoCraft then always starts under XWayland.	Atau atur Preferensi › Performa › Server tampilan Linux ke X11: PhotoCraft lalu selalu berjalan di XWayland.
+	To drop files, start Ardoise Photo under XWayland: `{command}`	Untuk menjatuhkan berkas, jalankan Ardoise Photo di XWayland: `{command}`
+	Or set Preferences › Performance › Linux display server to X11: Ardoise Photo then always starts under XWayland.	Atau atur Preferensi › Performa › Server tampilan Linux ke X11: Ardoise Photo lalu selalu berjalan di XWayland.
 	Edit › Paste	Edit › Tempel
 	Use File › Open, or paste a copied image with {paste}.	Gunakan Berkas › Buka, atau tempel gambar yang disalin dengan {paste}.
 	Mixer Brush Tool	Alat Kuas Pencampur
@@ -2546,8 +2546,8 @@
 	Tone Histogram	Histogram Nada
 	Show Selected Region	Tampilkan Wilayah Terpilih
 cameraRaw	Light	Cahaya
-	Camera Raw Filter ({layer})	Filter Camera Raw ({layer})
-	Camera Raw ({name})	Camera Raw ({name})
+	Raw Developer Filter ({layer})	Filter Raw Developer ({layer})
+	Raw Developer ({name})	Raw Developer ({name})
 cameraRaw	Lights	Nada Terang
 cameraRaw	Darks	Nada Gelap
 cameraRaw	Blacks	Hitam
@@ -2565,7 +2565,7 @@ cameraRaw	Blending	Pembauran
 	Automatic uses GPU acceleration when available and falls back to CPU rendering on errors.	Mode otomatis memakai akselerasi GPU bila tersedia dan beralih ke rendering CPU jika terjadi galat.
 	Switched to CPU rendering	Beralih ke rendering CPU
 	GPU acceleration could not continue. Your documents are unchanged.	Akselerasi GPU tidak dapat dilanjutkan. Dokumen Anda tidak berubah.
-	PhotoCraft is using the CPU image compositor. The window may still use your graphics adapter.	PhotoCraft menggunakan kompositor gambar CPU. Jendela mungkin masih menggunakan adaptor grafis Anda.
+	Ardoise Photo is using the CPU image compositor. The window may still use your graphics adapter.	Ardoise Photo menggunakan kompositor gambar CPU. Jendela mungkin masih menggunakan adaptor grafis Anda.
 	Retry GPU requires a restart. Save your work first.	Mencoba GPU lagi memerlukan mulai ulang. Simpan pekerjaan Anda terlebih dahulu.
 	Keep Using CPU	Tetap Gunakan CPU
 	Retry GPU	Coba GPU Lagi
@@ -2755,7 +2755,7 @@ fontWeight	Italic	Miring
 	Color to Alpha…	Warna ke Alpha…
 	Transparency Threshold	Ambang transparansi
 	Opacity Threshold	Ambang opasitas
-	PhotoCraft — Screen Color Picker	PhotoCraft — Pemilih Warna Layar
+	Ardoise Photo — Screen Color Picker	Ardoise Photo — Pemilih Warna Layar
 
 	Rasterize svg groups deeper than	Rasterisasi grup SVG yang lebih dalam dari ini
 	0 turns this threshold off; SVG groups nested deeper than 100 levels are always rasterized.	0 menonaktifkan ambang ini; grup SVG yang bersarang lebih dari 100 tingkat selalu dirasterisasi.

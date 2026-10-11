@@ -215,7 +215,7 @@ fn curves_points_are_added_selected_and_deleted() {
     assert_eq!(curve_of(&layer(&h).1).len(), 2, "endpoints can't be deleted");
 }
 
-/// Capture and history are shared with Camera Raw, but Properties commits on release.
+/// Capture and history are shared with Raw Developer, but Properties commits on release.
 #[test]
 fn curves_fast_release_commits_one_edit_and_undo_restores_the_curve() {
     let mut h = app_harness("curves", "rgb", 8);

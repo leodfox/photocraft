@@ -1,4 +1,4 @@
-//! Full-resolution refinement of Camera Raw's interactive proxy. Native work is off the
+//! Full-resolution refinement of Raw Developer's interactive proxy. Native work is off the
 //! UI thread; only one revision runs at a time, and obsolete results never replace new edits.
 use egui::{Color32, ColorImage, Context, Pos2, Rect, TextureHandle, TextureOptions, pos2, vec2};
 use photocraft_algo::camera_raw::CameraRaw;
@@ -71,7 +71,7 @@ impl DetailPreview {
         let result = match rx.try_recv() {
             Ok(result) => result,
             Err(TryRecvError::Empty) => return,
-            Err(TryRecvError::Disconnected) => Err("Camera Raw detail preview worker stopped".into()),
+            Err(TryRecvError::Disconnected) => Err("Raw Developer detail preview worker stopped".into()),
         };
         self.pending = None;
         match result {
@@ -100,7 +100,7 @@ impl DetailPreview {
         // The engine's full-image pipeline needs multiple temporary float buffers. Never start
         // an unbounded allocation just because a huge sparse document was zoomed into.
         if self.area.width() as u64 * self.area.height() as u64 > 64_000_000 {
-            self.error = Some("Full-resolution Camera Raw preview is limited to 64 megapixels; the proxy remains available".into());
+            self.error = Some("Full-resolution Raw Developer preview is limited to 64 megapixels; the proxy remains available".into());
             self.failed_revision = Some(revision);
             return;
         }
@@ -118,7 +118,7 @@ impl DetailPreview {
             }
             let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| develop(&source, area, &params, &coverage)))
                 .map(|surface| (revision, surface))
-                .map_err(|_| "Camera Raw detail preview failed; the proxy remains available".into());
+                .map_err(|_| "Raw Developer detail preview failed; the proxy remains available".into());
             if !cancel.load(Ordering::Relaxed) {
                 let _ = tx.send(result);
                 ctx.request_repaint();
@@ -135,7 +135,7 @@ impl DetailPreview {
             }) {
                 Ok(_) => self.pending = Some((revision, rx)),
                 Err(e) => {
-                    self.error = Some(format!("Cannot start Camera Raw preview: {e}"));
+                    self.error = Some(format!("Cannot start Raw Developer preview: {e}"));
                     self.failed_revision = Some(revision);
                 }
             }
@@ -146,7 +146,7 @@ impl DetailPreview {
             // instead of blocking its UI with the full-image engine pipeline.
             drop(work);
             drop(rx);
-            self.error = Some("Full-resolution filtered preview requires a native Camera Raw worker; the web preview keeps the proxy".into());
+            self.error = Some("Full-resolution filtered preview requires a native Raw Developer worker; the web preview keeps the proxy".into());
             self.failed_revision = Some(revision);
         }
     }

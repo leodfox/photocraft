@@ -4,7 +4,7 @@
 # Integer plural forms: one|few|many (1, 21; 2–4, 22–24; 0, 5–19).
 # Rule: https://www.unicode.org/cldr/charts/48/supplemental/language_plural_rules.html#uk
 # Preserve {name} placeholders, shortcut names and trailing dialog ellipses.
-# Original translations from the meaning of PhotoCraft's English source keys.
+# Original translations from the meaning of Ardoise Photo's English source keys.
 # No proprietary translation resources were used.
 # Licensed MIT OR Apache-2.0. See LICENSE-translations.txt and ATTRIBUTION.md.
 
@@ -272,7 +272,7 @@
 	Last Filter	Останній фільтр
 	Filter Gallery…	Галерея фільтрів…
 	Liquify…	Пластика…
-	Camera Raw Filter…	Фільтр Camera Raw…
+	Raw Developer Filter…	Фільтр Raw Developer…
 	Adaptive Wide Angle…	Адаптивний широкий кут…
 	Lens Correction…	Корекція об'єктива…
 	Vanishing Point…	Точка сходження…
@@ -458,12 +458,12 @@
 	Hide All	Приховати все
 
 # Help
-	About PhotoCraft	Про PhotoCraft
-	PhotoCraft Website	Вебсайт PhotoCraft
-	PhotoCraft on GitHub	PhotoCraft на GitHub
+	About Ardoise Photo	Про Ardoise Photo
+	Ardoise Photo Website	Вебсайт Ardoise Photo
+	Ardoise Photo on GitHub	Ardoise Photo на GitHub
 	Report an Issue…	Повідомити про проблему…
-	ArtCraft Website	Вебсайт ArtCraft
-	Join the ArtCraft Discord…	Приєднатися до Discord ArtCraft…
+	Ardoise Website	Вебсайт Ardoise
+	Join the Ardoise Discord…	Приєднатися до Discord Ardoise…
 	System Info…	Інформація про систему…
 
 # Tools and options bar
@@ -539,11 +539,11 @@
 	Import Shortcuts…	Імпортувати сполучення клавіш…
 	Load a keyboard shortcut set saved as .kys	Завантажити набір сполучень клавіш, збережений як .kys
 	Imported {n} shortcuts from {file}. Click OK to keep them.	Імпортовано сполучень клавіш: {n} із {file}. Натисніть OK, щоб зберегти їх.
-	{n} commands are not in PhotoCraft.	Команд, яких немає в PhotoCraft: {n}.
+	{n} commands are not in Ardoise Photo.	Команд, яких немає в Ardoise Photo: {n}.
 	Keyboard shortcuts imported	Сполучення клавіш імпортовано
 	Your keyboard shortcut set {set} is in use here: {n} shortcuts differ from the defaults. Edit › Keyboard Shortcuts shows them; Reset All to Defaults undoes this.	Тут використовується ваш набір сполучень клавіш {set}: сполучень, що відрізняються від стандартних: {n}. Їх показує Редагування › Сполучення клавіш; «Скинути все до стандартних» скасовує імпорт.
 	Import keyboard shortcuts?	Імпортувати сполучення клавіш?
-	PhotoCraft found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from PhotoCraft's. Import it?	PhotoCraft знайшов на цьому комп'ютері ваш набір сполучень клавіш {set} з іншого графічного редактора: сполучень, що відрізняються від PhotoCraft: {n}. Імпортувати його?
+	Ardoise Photo found your keyboard shortcut set {set} from another image editor on this computer: {n} of its shortcuts differ from Ardoise Photo's. Import it?	Ardoise Photo знайшов на цьому комп'ютері ваш набір сполучень клавіш {set} з іншого графічного редактора: сполучень, що відрізняються від Ardoise Photo: {n}. Імпортувати його?
 	Edit › Keyboard Shortcuts › Reset All to Defaults undoes an import.	Редагування › Сполучення клавіш › «Скинути все до стандартних» скасовує імпорт.
 	Don't Import	Не імпортувати
 	The keyboard shortcut set was not imported: {error}	Набір сполучень клавіш не імпортовано: {error}
@@ -776,7 +776,7 @@
 	Working Black Plate	Робоча чорна форма
 	Working Gray Plate	Робоча сіра форма
 
-# Camera Raw and lens dialogs
+# Raw Developer and lens dialogs
 	Basic	Основні
 	Detail	Деталі
 	HSL/Grayscale	HSL/градації сірого
@@ -806,8 +806,8 @@
 	Luminance Smoothness	Плавність яскравості
 	Vignetting	Віньєтування
 	White Balance: As Shot	Баланс білого: як під час знімання
-	Camera Raw…	Camera Raw…
-	Camera Raw isn't open	Camera Raw не відкрито
+	Raw Developer…	Raw Developer…
+	Raw Developer isn't open	Raw Developer не відкрито
 	Dehaze	Усунення серпанку
 	Texture	Текстура
 	Focal Length	Фокусна відстань
@@ -847,7 +847,7 @@
 	Embed Color Profile	Вбудувати колірний профіль
 	Assign Profile…	Призначити профіль…
 	Convert to Profile…	Перетворити на профіль…
-	PhotoCraft Manages Colors	PhotoCraft керує кольорами
+	Ardoise Photo Manages Colors	Ardoise Photo керує кольорами
 	Printer Manages Colors	Принтер керує кольорами
 	(print to the printer)	(друк на принтері)
 	Absolute Colorimetric	Абсолютний колориметричний
@@ -1062,8 +1062,8 @@
 	Roman Hanging Punctuation	Висяча латинська пунктуація
 	Avoid Widows/Orphans	Уникати висячих рядків
 	Compose	Компонування
-	Adobe Single-line Composer	Однорядковий компонувальник Adobe
-	Adobe Every-line Composer	Багаторядковий компонувальник Adobe
+	Single-line Composer	Однорядковий компонувальник Adobe
+	Every-line Composer	Багаторядковий компонувальник Adobe
 	Justification	Вирівнювання по ширині
 	Word Spacing	Інтервал між словами
 	Letter Spacing	Інтервал між літерами
@@ -1100,7 +1100,7 @@
 	Path	Контур
 	Path:	Контур:
 	Work Path	Робочий контур
-	Path to Illustrator…	Контур до Illustrator…
+	Path to Vector File…	Контур до Illustrator…
 	Make Work Path	Створити робочий контур
 	Make Selection	Створити виділення
 	Fill Path	Залити контур
@@ -1422,15 +1422,15 @@
 	Use File › Open, or paste a copied image with {paste}.	Скористайтеся меню Файл › Відкрити або вставте скопійоване зображення за допомогою {paste}.
 	Native file drag-and-drop is unavailable	Нативне перетягування файлів недоступне
 	Native file drag-and-drop is not supported on Wayland yet. Use File › Open, or copy the image in your file manager and paste it with {paste}.	Нативне перетягування файлів у Wayland ще не підтримується. Скористайтеся меню Файл › Відкрити або скопіюйте зображення у файловому менеджері та вставте його за допомогою {paste}.
-	To drop files, start PhotoCraft under XWayland: `{command}`	Щоб перетягувати файли, запустіть PhotoCraft під XWayland: `{command}`
-	Or set Preferences › Performance › Linux display server to X11: PhotoCraft then always starts under XWayland.	Або виберіть X11 у Налаштування › Продуктивність › Сервер відображення Linux: PhotoCraft завжди запускатиметься під XWayland.
+	To drop files, start Ardoise Photo under XWayland: `{command}`	Щоб перетягувати файли, запустіть Ardoise Photo під XWayland: `{command}`
+	Or set Preferences › Performance › Linux display server to X11: Ardoise Photo then always starts under XWayland.	Або виберіть X11 у Налаштування › Продуктивність › Сервер відображення Linux: Ardoise Photo завжди запускатиметься під XWayland.
 	Edit › Paste	Редагування › Вставити
 	Photo	Фото
 	Print	Друк
 	Art & Illustration	Мистецтво та ілюстрація
 	Mobile	Мобільні пристрої
 	Film & Video	Фільм і відео
-	Default PhotoCraft Size	Типовий розмір PhotoCraft
+	Default Ardoise Photo Size	Типовий розмір Ardoise Photo
 	Clipboard	Буфер обміну
 	Photo (2 × 3 in)	Фото (2 × 3 дюйми)
 	Photo (4 × 6 in)	Фото (4 × 6 дюймів)
@@ -1573,8 +1573,8 @@
 	Reverse	Зворотний
 	Align with layer	Вирівняти за шаром
 	Join us on Discord	Приєднуйтеся до нас у Discord
-	PhotoCraft website	Вебсайт PhotoCraft
-	ArtCraft	ArtCraft
+	Ardoise Photo website	Вебсайт Ardoise Photo
+	Ardoise	Ardoise
 	GitHub	GitHub
 	No character style	Без стилю символів
 	No author	Автор відсутній
@@ -1599,9 +1599,9 @@
 	Don't Save	Не зберігати
 	No	Ні
 	Yes	Так
-	These settings aren't available in PhotoCraft yet.	Ці параметри ще недоступні у PhotoCraft.
+	These settings aren't available in Ardoise Photo yet.	Ці параметри ще недоступні у Ardoise Photo.
 	Shortcut removed.	Клавіатурне скорочення вилучено.
-	All shortcuts reset to PhotoCraft defaults.	Усі клавіатурні скорочення скинуто до типових значень PhotoCraft.
+	All shortcuts reset to Ardoise Photo defaults.	Усі клавіатурні скорочення скинуто до типових значень Ardoise Photo.
 	Delete Shortcut	Видалити клавіатурне скорочення
 	Press keys…	Натисніть клавіші…
 	shortcut	клавіатурне скорочення
@@ -1854,7 +1854,7 @@
 	Other	Інше
 	Other…	Інше…
 	Paragraph Styles Panel	Панель стилів абзаців
-	Paths to Illustrator…	Контури до Illustrator…
+	Paths to Vector File…	Контури до Illustrator…
 	Pattern Preview	Перегляд візерунка
 	Pattern…	Візерунок…
 	Pixel Art	Піксельна графіка
@@ -2067,8 +2067,8 @@
 	Output:	Вихід:
 	Paint Overlay	Малювати накладання
 	Pattern Size	Розмір візерунка
-	PhotoCraft	PhotoCraft
-	PhotoCraft — an open-source, native image editor written in Rust.	PhotoCraft — нативний редактор зображень із відкритим кодом, написаний на Rust.
+	Ardoise Photo	Ardoise Photo
+	Ardoise Photo — an open-source, native image editor written in Rust.	Ardoise Photo — нативний редактор зображень із відкритим кодом, написаний на Rust.
 	Position and Size	Положення та розмір
 	Preserve Details	Зберігати деталі
 	Preserve Luminosity	Зберігати світність
@@ -2180,7 +2180,7 @@
 	CPU (no GPU acceleration)	CPU (без прискорення GPU)
 	Cache levels	Рівні кешу
 	Cache tile size	Розмір плитки кешу
-	Camera Raw Defaults	Типові параметри Camera Raw
+	Raw Developer Defaults	Типові параметри Raw Developer
 	Canvas border	Межа полотна
 	Canvas color	Колір полотна
 	Canvas custom color	Довільний колір полотна
@@ -2264,7 +2264,7 @@
 	Never	Ніколи
 	Normal tip	Звичайний кінчик
 	Open as smart object	Відкривати як смартоб'єкт
-	Open in camera raw	Відкривати в Camera Raw
+	Open in camera raw	Відкривати в Raw Developer
 	Open documents as tabs	Відкривати документи у вкладках
 	OpenGL	OpenGL
 	Orange	Оранжевий
@@ -2369,7 +2369,7 @@
 	Automatic uses GPU acceleration when available and falls back to CPU rendering on errors.	Автоматичний режим використовує прискорення GPU, коли воно доступне, та переходить на рендеринг CPU в разі помилок.
 	Switched to CPU rendering	Перехід на рендеринг CPU
 	GPU acceleration could not continue. Your documents are unchanged.	Прискорення GPU не може продовжувати роботу. Ваші документи не змінено.
-	PhotoCraft is using the CPU image compositor. The window may still use your graphics adapter.	PhotoCraft використовує компонувальник зображень CPU. Вікно може й далі використовувати ваш графічний адаптер.
+	Ardoise Photo is using the CPU image compositor. The window may still use your graphics adapter.	Ardoise Photo використовує компонувальник зображень CPU. Вікно може й далі використовувати ваш графічний адаптер.
 	Retry GPU requires a restart. Save your work first.	Повторна спроба використати GPU потребує перезапуску. Спочатку збережіть роботу.
 	Keep Using CPU	Продовжити з CPU
 	Retry GPU	Повторити спробу з GPU
@@ -2387,9 +2387,9 @@
 	Tone Histogram	Тонова гістограма
 	Show Selected Region	Показувати вибрану область
 cameraRaw	Light	Світло
-# Camera Raw: contextual controls and window title
-	Camera Raw Filter ({layer})	Фільтр Camera Raw ({layer})
-	Camera Raw ({name})	Camera Raw ({name})
+# Raw Developer: contextual controls and window title
+	Raw Developer Filter ({layer})	Фільтр Raw Developer ({layer})
+	Raw Developer ({name})	Raw Developer ({name})
 	Aqua	Аквамариновий
 cameraRaw	Amount	Величина
 cameraRaw	Blacks	Чорні тони
@@ -3075,7 +3075,7 @@ cameraRaw	Masking	Маскування
 	Layer Comps to Files	Композиції шарів у файли
 	Color Lookup Tables	Таблиці перетворення кольорів
 	Data Sets as Files	Набори даних як файли
-	Paths to Illustrator	Контури до Illustrator
+	Paths to Vector File	Контури до Illustrator
 	Render Video	Рендерити відео
 	Place Embedded	Розмістити вбудований
 	Place Linked	Розмістити пов'язаний
@@ -3103,7 +3103,7 @@ cameraRaw	Masking	Маскування
 	Color Settings	Налаштування кольору
 	Assign Profile	Призначити профіль
 	Convert to Profile	Перетворити на профіль
-	Camera Raw	Camera Raw
+	Raw Developer	Raw Developer
 	Raw Defaults	Типові параметри Raw
 	AI Integrations	Інтеграції ШІ
 	Install Plug-in	Установити плагін
@@ -3150,7 +3150,7 @@ cameraRaw	Masking	Маскування
 	Border	Межа
 	Contract	Стиснути
 	Filter Gallery	Галерея фільтрів
-	Camera Raw Filter	Фільтр Camera Raw
+	Raw Developer Filter	Фільтр Raw Developer
 	Liquify	Пластика
 	Vanishing Point	Точка сходження
 	Field Blur	Розмиття поля
@@ -3200,7 +3200,7 @@ cameraRaw	Masking	Маскування
 	Custom Pixel Aspect Ratio	Довільне співвідношення сторін пікселя
 	32-bit Preview Options	Параметри 32-бітного перегляду
 	New Guide	Нова напрямна
-	Join the ArtCraft Discord	Приєднатися до Discord ArtCraft
+	Join the Ardoise Discord	Приєднатися до Discord Ardoise
 	Report an Issue	Повідомити про проблему
 	WIA Support	Підтримка WIA
 	Load Files into Stack	Завантажити файли у стос
@@ -3545,4 +3545,4 @@ cameraRaw	Masking	Маскування
 	Front Image	Зображення переднього плану
 	Search settings…	Пошук налаштувань…
 	No matching settings	Немає відповідних налаштувань
-	PhotoCraft — Screen Color Picker	PhotoCraft — Піпетка кольору екрана
+	Ardoise Photo — Screen Color Picker	Ardoise Photo — Піпетка кольору екрана

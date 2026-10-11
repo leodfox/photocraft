@@ -347,7 +347,7 @@ fn on_event(app: &mut PhotocraftApp, ctx: &egui::Context, e: JobEvent) {
     if crate::prefs_ui::on_recovery_event(app, &e) {
         return;
     }
-    // Camera Raw's open-time re-develop and its final step.
+    // Raw Developer's open-time re-develop and its final step.
     if crate::camera_raw_ui::on_redevelop_event(app, &e) {
         return;
     }
@@ -424,7 +424,7 @@ fn finish_open(app: &mut PhotocraftApp, name: &str, path: Option<&str>, v: &Valu
     app.sync_views();
     app.ui.status = format!("Opened {name}");
     app.ui.status_error = false;
-    // A raw opens in Camera Raw first; the dialog says how it was developed.
+    // A raw opens in Raw Developer first; the dialog says how it was developed.
     if crate::camera_raw_ui::wants_open_dialog(app, &warnings) {
         crate::camera_raw_ui::queue_open_dialog(app, name, path, None);
         notices::io_warnings(app, &format!("Opened {name}"), &crate::camera_raw_ui::without_develop_note(&warnings));
